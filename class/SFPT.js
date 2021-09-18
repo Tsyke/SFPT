@@ -1,4 +1,4 @@
-const { Client, MessageEmbed } = require('discord.js');
+const { Client } = require('discord.js');
 
 class SFPT extends Client {
     constructor(option) {
