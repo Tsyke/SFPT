@@ -1,6 +1,8 @@
+![GitHub Logo](/images/logo.png)
+
 <EN>
 
-## welcome to SFPT Bot, security bot
+## Welcome to SFPT Bot, security bot
 
 _Replace **exemple-config.json** by **config.json**_
 _Complete **config.json** with your informations_
