@@ -1,0 +1,8 @@
+{
+    "discord_client": {
+        "token": "Your token"
+    },
+    "database": {
+        "url": "Your url database (MongoDB)"
+    }
+}
