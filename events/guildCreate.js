@@ -14,15 +14,8 @@ module.exports = async(client, guild) => {
     })
     guildDoc = new client.guild({
         guildID: guild.id,
-        Autorole: false,
-        Prefix: 'h.',
-        LogsChannel: channel.id,
-        TimeAgeBan: 0,
-        Ageban: false,
-        rolecap: guild.id,
-        Captcha: false,
-        RaidMode: false,
-        Autoban: true
+        prefix: 'sfpt.',
+        logs: channel.id,
     })
     guildDoc.save()
 }
