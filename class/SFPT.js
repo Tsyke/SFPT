@@ -4,6 +4,7 @@ class SFPT extends Client {
     constructor(option) {
         super(option)
         this.guild = require("../models/guilds/guilds")
+        this.bot = require("../models/bot/bot")
     }
 
     async GetGuildData(guildID) {
