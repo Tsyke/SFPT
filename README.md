@@ -1,4 +1,4 @@
-![GitHub Logo](/images/logo.png)
+![GitHub Logo](https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png?size=4096)
 
 <EN>
 
