@@ -2,20 +2,20 @@
 
 <EN>
 
-## Welcome to SFPT Bot, security bot
+## Welcome to SFPT Bot, security bot<br><br>
 
-_Replace **exemple-config.json** by **config.json**_
-_Complete **config.json** with your informations_
-_Launch bot with **shard.js**_
+_Replace **exemple-config.json** by **config.json**_ <br>
+_Complete **config.json** with your informations_ <br>
+_Launch bot with **shard.js**_<br><br>
 
 __Code create by CutePanda#9746__
 
 <FR>
 
-## Bienvenue sur SFPT Bot, bot sécurité
+## Bienvenue sur SFPT Bot, bot sécurité<br><br>
 
-_Remplacez **exemple-config.json** par **config.json**_
-_Completez **config.json** par vos informations_
-_Lancez le bot avec **shard.js**_
+_Remplacez **exemple-config.json** par **config.json**_<br>
+_Completez **config.json** par vos informations_<br>
+_Lancez le bot avec **shard.js**_<br><br>
 
 __Code crée par CutePanda#9746__
