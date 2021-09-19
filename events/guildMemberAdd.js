@@ -94,6 +94,8 @@ module.exports = async(client, member) => {
             if (m.author.id === member.id && m.content === captchaCode) return true;
             else {
                 m.channel.send("Mauvais captcha !")
+                VerifChannel.bulkDelete(4)
+                member.kick()
                 return false;
             }
         };
