@@ -55,7 +55,7 @@ module.exports = {
                 }
             } else if (args[0] === "offline") {
                 if (statutBot) {
-                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: args[0] } })
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: "invisible" } })
                     statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { stream: false } })
                     message.reply({ embeds: [embed] })
                 }

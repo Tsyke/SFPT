@@ -1,19 +1,20 @@
 {
-  "name": "SFPT",
-  "version": "0.0.1",
-  "description": "Security, safe, clean, and really protect",
-  "main": "index.js",
-  "author": "CutePanda#9746",
-  "license": "MIT",
-  "private": false,
-  "dependencies": {
-    "@sendgrid/mail": "^7.4.6",
-    "discord.js": "^13.1.0",
-    "dotenv": "^10.0.0",
-    "mail": "^0.2.3",
-    "mongoose": "^6.0.6",
-    "nodemailer": "^6.6.3",
-    "nodemailer-smtp-transport": "^2.7.4",
-    "ultrax": "^1.8.18"
-  }
+    "name": "SFPT",
+    "version": "0.0.1",
+    "description": "Security, safe, clean, and really protect",
+    "main": "index.js",
+    "author": "CutePanda#9746",
+    "license": "MIT",
+    "private": false,
+    "repository": "https://github.com/Squanou/SFPT/",
+    "dependencies": {
+        "@sendgrid/mail": "^7.4.6",
+        "discord.js": "^13.1.0",
+        "dotenv": "^10.0.0",
+        "mail": "^0.2.3",
+        "mongoose": "^6.0.6",
+        "nodemailer": "^6.6.3",
+        "nodemailer-smtp-transport": "^2.7.4",
+        "ultrax": "^1.8.18"
+    }
 }
