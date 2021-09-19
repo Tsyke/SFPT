@@ -11,17 +11,74 @@ module.exports = {
         let statutBot = await Bot.findOne({
             bot: client.user.id,
         })
-        var Statut;
-        Statut = args.join(' ');
+        if (!args[0]) {
+            var Statut;
+            Statut = args.join(' ');
 
-        if (statutBot) {
-            statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { statut: Statut } })
+            if (statutBot) {
+                statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { statut: Statut } })
+                var embed = new MessageEmbed()
+                    .setDescription(`✅ Statut changé pour \`${Statut}\``)
+                    .setColor('GREEN')
+                return message.channel.send({
+                    embeds: [embed]
+                })
+            }
+        } else if (args[0]) {
+            var mode = {
+                "dnd": 'Ne pas dérangé',
+                "idle": "Innactif",
+                "online": "En ligne",
+                "offline": "Hors ligne",
+                "streaming": "En direct",
+            }
             var embed = new MessageEmbed()
-                .setDescription(`✅ Statut changé pour \`${Statut}\``)
+                .setDescription(`✅ Statut changé pour \`${mode[args[0]]}\``)
                 .setColor('GREEN')
-            return message.channel.send({
-                embeds: [embed]
-            })
+            if (args[0] === "dnd") {
+                if (statutBot) {
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: args[0] } })
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { stream: false } })
+                    message.reply({ embeds: [embed] })
+                }
+            } else if (args[0] === "idle") {
+                if (statutBot) {
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: args[0] } })
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { stream: false } })
+                    message.reply({ embeds: [embed] })
+                }
+            } else if (args[0] === "online") {
+                if (statutBot) {
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: args[0] } })
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { stream: false } })
+                    message.reply({ embeds: [embed] })
+                }
+            } else if (args[0] === "offline") {
+                if (statutBot) {
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: args[0] } })
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { stream: false } })
+                    message.reply({ embeds: [embed] })
+                }
+            } else if (args[0] === "streaming") {
+                if (statutBot) {
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { connexion: args[0] } })
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { stream: true } })
+                    message.reply({ embeds: [embed] })
+                }
+            } else if (args[0] !== "dnd" || "idle" || "online" || "offline" || "streaming") {
+                var Statut;
+                Statut = args.join(' ');
+
+                if (statutBot) {
+                    statutBot = await Bot.findOneAndUpdate({ bot: client.user.id }, { $set: { statut: Statut } })
+                    var embed = new MessageEmbed()
+                        .setDescription(`✅ Statut changé pour \`${Statut}\``)
+                        .setColor('GREEN')
+                    return message.channel.send({
+                        embeds: [embed]
+                    })
+                }
+            }
         }
     }
 }

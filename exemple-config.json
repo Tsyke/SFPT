@@ -4,5 +4,18 @@
     },
     "database": {
         "url": "Your url database (MongoDB)"
+    },
+    "nodemailer": {
+        "auth": {
+            "user": "mailtrap user",
+            "pass": "mailtrap pass"
+        },
+        "service": "smtp.mailtrap.io",
+        "port": 2525,
+        "secure": false,
+        "MessageMail": {
+            "from": "from-example@email.com",
+            "subject": "Inscription"
+        }
     }
 }

@@ -1,3 +1,5 @@
 node_modules
 .timetracker
 config.json
+commands/staff
+models/admin
