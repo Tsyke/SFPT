@@ -6,7 +6,8 @@
 
 _Replace **exemple-config.json** by **config.json**_
 _Complete **config.json** with your informations_
-/!\ For "nodemailer", first create your account
+_Launch bot with **shard.js**_
+
 __Code create by CutePanda#9746__
 
 <FR>
@@ -15,6 +16,6 @@ __Code create by CutePanda#9746__
 
 _Remplacez **exemple-config.json** par **config.json**_
 _Completez **config.json** par vos informations_
-/!\ Pour "nodemailer", crée votre compte vous même
+_Lancez le bot avec **shard.js**_
 
 __Code crée par CutePanda#9746__
