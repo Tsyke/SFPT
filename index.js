@@ -3,7 +3,7 @@ const { Client, Intents, Collection } = require('discord.js');
 const SFPT = require('./class/SFPT.js')
 const connect = require('./configs/MongoConnect');
 
-const client = new SFPT({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
+const client = new SFPT({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MEMBERS] })
 const fs = require('fs');
 client.commands = new Collection();
 
