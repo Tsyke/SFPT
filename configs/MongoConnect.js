@@ -1,4 +1,4 @@
-const { discord_client: { token }, database: { url } } = require('../config.json')
+const { database: { url } } = require('../config.json')
 
 const mongoose = require('mongoose')
 const URL = process.env;
