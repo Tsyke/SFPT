@@ -10,8 +10,8 @@ class SFPT extends Client {
     }
 
     async GetGuildData(guildID) {
-        if (!guildID) throw new Error("No guild ID provided")
-        if (isNaN(guildID)) throw new Error("Guild ID is not a valid number")
+        if (!guildID) throw new Error("No guild ID provided");
+        if (isNaN(guildID)) throw new Error("Guild ID is not a valid number");
         let GuildDoc = await this.guild.findOne({
             guildID
         })
