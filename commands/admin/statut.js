@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-
 module.exports = {
     name: "set-statut",
     permission: "ADMINISTRATOR",

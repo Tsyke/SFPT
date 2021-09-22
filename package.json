@@ -16,6 +16,7 @@
         "mongoose": "^6.0.6",
         "nodemailer": "^6.6.3",
         "nodemailer-smtp-transport": "^2.7.4",
-        "ultrax": "^1.8.18"
+        "ultrax": "^1.8.18",
+        "SFPT": "^1.0.2"
     }
 }
