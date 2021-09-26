@@ -24,5 +24,5 @@ class SFPT extends Client {
         })
         return GuildDoc;
     }
-}
+};
 module.exports = SFPT;

@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "prefix",
-    permission: ["ADMINISTRATOR"],
+    permission: "ADMINISTRATOR",
 
     async execute(client, message, args) {
         if (!message.member.permissions.has(this.permission)) return message.reply({ content: "Non authorisé" })

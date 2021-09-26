@@ -2,7 +2,7 @@ module.exports = async(client, guild) => {
     let everyone = guild.roles.cache.find((x) => x.name == "@everyone")
     const channel = await guild.channels.create("sfpt-logs", {
         type: "channel",
-        topic: "",
+        topic: "Ceci est le salon de logs de SFPT",
         id: guild.id,
         permissionOverwrites: [{
             id: everyone.id,

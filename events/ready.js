@@ -75,4 +75,4 @@ module.exports = async(client, message) => {
             console.log("Server mailer return: " + 200);
         }
     });
-}
+};

@@ -6,6 +6,6 @@ let statut = new mongoose.Schema({
     connexion: String,
     stream: Boolean,
     commandsUsed: Number
-})
+});
 
 module.exports = mongoose.model('statut', statut)

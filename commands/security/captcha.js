@@ -6,6 +6,7 @@ module.exports = {
     aliases: 'Aucun',
 
     async execute(client, message, args) {
+        if (!message.member.permissions.has(this.permission)) return message.reply({ content: "Non authorisé" })
         var captcha;
         captcha = await client.GetGuildData(message.guild.id);
 

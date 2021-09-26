@@ -4,4 +4,4 @@ module.exports = {
     async execute(client, message) {
         message.reply({ content: "Bot work" })
     }
-}
+};

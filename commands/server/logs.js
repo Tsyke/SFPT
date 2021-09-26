@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'logs',
-    aliases: ['Aucun'],
+    aliases: 'Aucun',
     permission: "ADMINISTRATOR",
 
     async execute(client, message, args) {

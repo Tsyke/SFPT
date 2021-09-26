@@ -6,7 +6,7 @@
     "author": "CutePanda#9746",
     "license": "MIT",
     "private": false,
-    "repository": "https://github.com/Squanou/SFPT/",
+    "repository": "https://github.com/matheo-debal/SFPT/",
     "dependencies": {
         "@sendgrid/mail": "^7.4.6",
         "canvas": "^2.8.0",

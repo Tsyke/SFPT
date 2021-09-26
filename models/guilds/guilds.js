@@ -5,7 +5,8 @@ const Guild = new mongoose.Schema({
     prefix: String,
     logs: String,
     captcha: Boolean,
-    CaptchaRole: String
+    CaptchaRole: String,
+    raid: Boolean
 });
 
 module.exports = mongoose.model('guilds', Guild)
