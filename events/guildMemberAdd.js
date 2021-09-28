@@ -129,4 +129,27 @@ module.exports = async(client, member) => {
         member.kick()
     }
 
+    if (guild.ageban === true) {
+        console.log(member.user.createdAt)
+        console.log(guild.agebanTime)
+        if (member.user.createdAt < guild.agebanTime) {
+            var date;
+            date = new Date(member.user.createdAt).toLocaleString("FR-fr", { timeZone: "Europe/Paris" });
+
+            var MemberEmbed = new MessageEmbed()
+                .setTitle(':warning: Age-ban')
+                .setDescription(`L'age-ban est activé sur le serveur: **__\`${member.guild.name}\`__**`)
+                .setColor('#ff0000')
+            await member.send({ embeds: [MemberEmbed] })
+
+            var LogsEmbed = new MessageEmbed()
+                .setTitle(':information_source: Age-ban')
+                .setDescription(`Un membre a essayer de rejoindre: \nUsername: ${member.user.username}\nTag: ${member.user.tag}\nCréation du compte: ${date}`)
+                .setColor('#ff0000')
+            await logs.send({ embeds: [LogsEmbed] })
+
+            member.kick()
+        }
+    }
+
 }

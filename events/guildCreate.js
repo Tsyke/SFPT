@@ -14,8 +14,13 @@ module.exports = async(client, guild) => {
     })
     guildDoc = new client.guild({
         guildID: guild.id,
-        prefix: 'sfpt.',
+        prefix: "sfpt.",
         logs: channel.id,
+        captcha: false,
+        CaptchaRole: guild.id,
+        raid: false,
+        ageban: false,
+        agebanTime: 0
     })
     guildDoc.save()
 }
