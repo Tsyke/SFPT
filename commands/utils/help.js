@@ -5,6 +5,7 @@ module.exports = {
     aliases: "h",
     permission: "Aucune",
     owner: false,
+    BotPerm: 260717412343,
 
     async execute(client, message, args) {
         if (!args[0]) {
@@ -15,7 +16,7 @@ module.exports = {
                 .setThumbnail(client.user.displayAvatarURL())
                 .addFields({
                     name: "⚠ Anti-raid",
-                    value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban`"
+                    value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links`"
                 }, {
                     name: "🤖 Général",
                     value: "`En dev`"
@@ -24,7 +25,9 @@ module.exports = {
                     value: "`logs` `prefix`"
                 }, {
                     name: "❤ Plus",
-                    value: `[Invité le bot](https://discord.com/oauth2/authorize?client_id=888839441454628897&permissions=260717412343&scope=bot)`
+                    value: `[Invité le bot](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${this.BotPerm}&scope=bot)\N
+                    [Rejoindre le support](https://discord.gg/8pbVZVCAwH)
+                    `
                 })
             message.reply({ embeds: [MemberEmbed] })
         } else {

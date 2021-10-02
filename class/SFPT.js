@@ -6,6 +6,7 @@ class SFPT extends Client {
         this.config = require('../config.json')
         this.guild = require("../models/guilds/guilds")
         this.spam = require("../models/guilds/allowspam")
+        this.role = require('../models/guilds/role')
         this.bot = require("../models/bot/bot")
         this.accountStaff = require('../models/admin/staffAccount')
     }
@@ -24,6 +25,10 @@ class SFPT extends Client {
             email
         })
         return GuildDoc;
+    }
+    async GetRole() {
+        let roledoc = await this.role.find()
+        return roledoc
     }
 }
 module.exports = SFPT;

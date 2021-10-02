@@ -12,6 +12,8 @@ const Guild = new mongoose.Schema({
     nobot: Boolean,
     AntiSpam: Boolean,
     IgnoreChannel: Array,
+    antilinks: Boolean,
+    Autorole: Boolean,
 });
 
 module.exports = mongoose.model('guilds', Guild)

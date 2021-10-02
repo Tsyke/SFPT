@@ -1,7 +1,18 @@
 const AntiSpam = new Map();
-
+const { MessageEmbed } = require('discord.js')
 module.exports = async(client, message) => {
+
+    if (message.channel.id == "893980732127580180" && message.author.id == "893979514848280637" && message.content == "!!ping") {
+        message.channel.send("...")
+            .then((m) => {
+                m.edit(`Bot:${m.createdTimestamp - message.createdTimestamp}\nAPI:${client.ws.ping}`);
+            });
+    }
     var GuildData = await client.GetGuildData(message.guild.id)
+
+    var logs;
+    logs = message.guild.channels.cache.get(GuildData.logs);
+
     const prefix = GuildData.prefix
     if (!message.author.bot) {
 
@@ -59,6 +70,47 @@ module.exports = async(client, message) => {
                 }
             }
         })
+    }
+
+    //! Anti-links
+    if (GuildData.antilinks === true && !message.member.permissions.has("ADMINISTRATOR")) {
+        var embed;
+        embed = MessageEmbed;
+
+        var msg;
+        msg = message.content;
+
+        var AlertMemberEmbed;
+        AlertMemberEmbed = new embed()
+            .setTitle("Anti-liens")
+            .setDescription(':warning: Les liens sont interdit sur ce serveur !')
+            .setColor("BLUE")
+
+        var LogsEmbed;
+        LogsEmbed = new embed()
+            .setTitle('[ALERTE] Anti-links')
+            .setDescription(`${message.author} a mis un lien.`)
+            .setThumbnail('https://cdn.discordapp.com/attachments/874987314261159977/889204014955261952/15afdc7b92c8af3b4b084222641bc5cd.png')
+            .setColor('RED')
+
+        if (msg.startsWith('http')) {
+            message.delete(),
+                logs.send({ embeds: [LogsEmbed] }),
+                message.author.send({ embeds: [AlertMemberEmbed] })
+        } else if (msg.includes("http")) {
+            message.delete(),
+                logs.send({ embeds: [LogsEmbed] }),
+                message.author.send({ embeds: [AlertMemberEmbed] })
+        } else if (msg.startsWith("discord.gg/")) {
+            message.delete(),
+                logs.send({ embeds: [LogsEmbed] }),
+                message.author.send({ embeds: [AlertMemberEmbed] })
+        } else if (msg.includes("discord.gg/")) {
+            message.delete(),
+                logs.send({ embeds: [LogsEmbed] }),
+                message.author.send({ embeds: [AlertMemberEmbed] })
+        }
+
     }
 
 };

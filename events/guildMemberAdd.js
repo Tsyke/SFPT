@@ -168,4 +168,13 @@ module.exports = async(client, member) => {
         }
     }
 
+    //!Auto-role
+    if (guild.Autorole === true) {
+        let roleDoc = await client.GetRole(member.guild.id)
+        roleDoc.forEach((role) => {
+            console.log(role.role)
+            member.roles.add(role.role)
+        })
+    }
+
 }
