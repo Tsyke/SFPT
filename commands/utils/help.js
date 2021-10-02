@@ -18,6 +18,9 @@ module.exports = {
                     name: "⚠ Anti-raid",
                     value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links`"
                 }, {
+                    name: "🦺 Modération",
+                    value: "`ban` `kick`"
+                }, {
                     name: "🤖 Général",
                     value: "`En dev`"
                 }, {
