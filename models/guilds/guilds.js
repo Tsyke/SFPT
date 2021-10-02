@@ -8,7 +8,10 @@ const Guild = new mongoose.Schema({
     CaptchaRole: String,
     raid: Boolean,
     ageban: Boolean,
-    agebanTime: Number
+    agebanTime: Number,
+    nobot: Boolean,
+    AntiSpam: Boolean,
+    IgnoreChannel: Array,
 });
 
 module.exports = mongoose.model('guilds', Guild)

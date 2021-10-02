@@ -5,6 +5,7 @@ class SFPT extends Client {
         super(option)
         this.config = require('../config.json')
         this.guild = require("../models/guilds/guilds")
+        this.spam = require("../models/guilds/allowspam")
         this.bot = require("../models/bot/bot")
         this.accountStaff = require('../models/admin/staffAccount')
     }

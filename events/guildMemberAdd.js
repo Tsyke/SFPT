@@ -14,6 +14,7 @@ module.exports = async(client, member) => {
     if (!guild) {
         throw new Error(`DataBase error: No guild id provided [${member.guild.name} & ${member.guild.id}] (./events/guildMemberAdd.js:6:45)`)
     } else {
+        //! Captcha
         if (guild.captcha === true) {
             var NoVerifRole;
             NoVerifRole = await member.guild.roles.cache.find((x) => x.name == "non vérifié");
@@ -111,6 +112,7 @@ module.exports = async(client, member) => {
         }
     }
     if (guild.raid === true) {
+        //!antiraid
         var date;
         date = new Date(member.user.createdAt).toLocaleString("FR-fr", { timeZone: "Europe/Paris" });
 
@@ -130,6 +132,7 @@ module.exports = async(client, member) => {
     }
 
     if (guild.ageban === true) {
+        //! Age ban
         console.log(member.user.createdAt)
         console.log(guild.agebanTime)
         if (member.user.createdAt < guild.agebanTime) {
@@ -145,6 +148,19 @@ module.exports = async(client, member) => {
             var LogsEmbed = new MessageEmbed()
                 .setTitle(':information_source: Age-ban')
                 .setDescription(`Un membre a essayer de rejoindre: \nUsername: ${member.user.username}\nTag: ${member.user.tag}\nCréation du compte: ${date}`)
+                .setColor('#ff0000')
+            await logs.send({ embeds: [LogsEmbed] })
+
+            member.kick()
+        }
+    }
+    if (guild.nobot === true) {
+        //! nobot
+        if (member.user.bot) {
+
+            var LogsEmbed = new MessageEmbed()
+                .setTitle(':information_source: Anti-boy')
+                .setDescription(`Un bot a essayer de rejoindre: \nUsername: ${member.user.username}\nTag: ${member.user.tag}`)
                 .setColor('#ff0000')
             await logs.send({ embeds: [LogsEmbed] })
 
