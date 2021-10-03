@@ -13,8 +13,7 @@ module.exports = {
         const reason = args.slice(1).join(' ');
         let User = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         let GuildDoc = await client.GetGuildData(message.guild.id)
-        let log = GuildDoc.LogsChannel;
-        let logs = message.guild.channels.cache.get(log)
+        let logs = message.guild.channels.cache.get(GuildDoc.logs)
         if (!User) {
             return message.channel.send({
                 content: `Paramètre invalide. Usage correct: \`${GuildDoc.prefix}kick <mention/id> <reason>\``
@@ -34,13 +33,13 @@ module.exports = {
                 const memberPosition = User.roles.highest.position;
                 const moderationPosition = message.member.roles.highest.position;
                 if (message.author.id === User.id) {
-                    return (message.channel.send('Impossible de vous auto-kick.'))
+                    return (message.channel.send({ content: 'Impossible de vous auto-kick.' }))
                 }
                 if (message.member.ownerID !== message.author.id && !(moderationPosition > memberPosition)) {
-                    return (message.channel.send('Impossible de Kick quelqu\'un de plus haut que vous ou égal à vous.'))
+                    return (message.channel.send({ content: 'Impossible de Kick quelqu\'un de plus haut que vous ou égal à vous.' }))
                 }
                 var LogsEmbed = new MessageEmbed()
-                    .setTitle('Santion [Kick]')
+                    .setTitle('Sanction [Kick]')
                     .setColor("RED")
                     .addFields({
                         name: 'Modérateur:',
@@ -54,9 +53,9 @@ module.exports = {
                         name: 'Raison:',
                         value: `> ${reason}`
                     })
-                await logs.send({ embed: LogsEmbed })
+                await logs.send({ embeds: [LogsEmbed] })
                 var UserEmbed = new MessageEmbed()
-                    .setTitle(`Santion [Kick]`)
+                    .setTitle(`Sanction [Kick]`)
                     .setDescription(`Vous venez d'être kick de **__${message.guild.name}__** par **__${message.author}__**`)
                     .setColor("RED")
                     .addFields({
@@ -64,7 +63,7 @@ module.exports = {
                         value: `> ${reason}`
                     })
                 await User.send({
-                    embed: UserEmbed
+                    embeds: [UserEmbed]
                 })
                 User.kick(reason)
             }

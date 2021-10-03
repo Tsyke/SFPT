@@ -13,8 +13,7 @@ module.exports = {
         const reason = args.slice(1).join(' ');
         let User = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         let GuildDoc = await client.GetGuildData(message.guild.id)
-        let log = GuildDoc.LogsChannel;
-        let logs = message.guild.channels.cache.get(log)
+        let logs = message.guild.channels.cache.get(GuildDoc.logs)
         if (!User) {
             return message.channel.send({
                 content: `Paramètre invalide. Usage correct: \`${GuildDoc.prefix}ban <mention/id> <reason>\``
@@ -40,7 +39,7 @@ module.exports = {
                     return (message.channel.send('Impossible de ban quelqu\'un de plus haut que vous ou égal à vous.'))
                 }
                 var LogsEmbed = new MessageEmbed()
-                    .setTitle('Santion [Ban]')
+                    .setTitle('Sanction [Ban]')
                     .setColor("RED")
                     .addFields({
                         name: 'Modérateur:',
@@ -56,7 +55,7 @@ module.exports = {
                     })
                 await logs.send({ embeds: LogsEmbed })
                 var UserEmbed = new MessageEmbed()
-                    .setTitle(`Santion [Ban]`)
+                    .setTitle(`Sanction [Ban]`)
                     .setDescription(`Vous venez d'être ban de **__${message.guild.name}__** par **__${message.author}__**`)
                     .setColor("RED")
                     .addFields({
