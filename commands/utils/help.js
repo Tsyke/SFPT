@@ -28,9 +28,7 @@ module.exports = {
                     value: "`logs` `prefix`"
                 }, {
                     name: "❤ Plus",
-                    value: `[Invité le bot](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${this.BotPerm}&scope=bot)\N
-                    [Rejoindre le support](https://discord.gg/8pbVZVCAwH)
-                    `
+                    value: `[Invité le bot](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${this.BotPerm}&scope=bot)\n[Rejoindre le support](https://discord.gg/8pbVZVCAwH)`
                 })
             message.reply({ embeds: [MemberEmbed] })
         } else {
