@@ -22,7 +22,7 @@ module.exports = {
                     value: "`ban` `kick`"
                 }, {
                     name: "🤖 Général",
-                    value: "`En dev`"
+                    value: "`ticket`"
                 }, {
                     name: "🧪 Utiles",
                     value: "`logs` `prefix`"
