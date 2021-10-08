@@ -15,7 +15,7 @@ module.exports = {
         var TLogs;
         TLogs = await message.guild.channels.cache.find(channel => channel.name === "tickets-logs");
         if (!TLogs) TLogs = logs
-        if (!option) return client.Error({ type: 'args', error: `Erreur d'argument. Argument possible: \`"create" || "set" || "role" || "config" || "close" || "add" || "remove"\`` }, message)
+        if (!option) return client.Error({ type: 'args', error: `Erreur d'argument. Argument possible: \`"create" || "set" || "config" || "remove"\`` }, message)
         if (option) {
             if (option === "config") {
                 option = args[1];
