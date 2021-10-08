@@ -14,6 +14,9 @@ const Guild = new mongoose.Schema({
     IgnoreChannel: Array,
     antilinks: Boolean,
     Autorole: Boolean,
+    ticket: Boolean,
+    ticket_logs: String,
+    ticket_roles: Array
 });
 
 module.exports = mongoose.model('guilds', Guild)

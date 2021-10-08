@@ -6,7 +6,9 @@ module.exports = {
     owner: false,
     aliases: "Aucun",
 
-    async execute(client, message, args) {
+    async execute(client, message, args, prefix, data, map, guild) {
+        if (!message.member.permissions.has(this.permission)) return message.reply({ content: "Non authorisé" })
+
         var logs;
         var DesacEmbed = new MessageEmbed()
             .setTitle('[Modification] Age-ban désactivé')

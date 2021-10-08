@@ -13,6 +13,9 @@ module.exports = async(client, message) => {
     var logs;
     logs = message.guild.channels.cache.get(GuildData.logs);
 
+    var DBError;
+    DBError = client.DBError
+
     const prefix = GuildData.prefix
     if (!message.author.bot) {
 
@@ -22,8 +25,10 @@ module.exports = async(client, message) => {
             const command = args.shift().toLowerCase();
 
             const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
-            const data = {};
-            if (cmd) cmd.execute(client, message, args, data);
+            const data = [];
+            const object = {};
+            const guild = message.guild;
+            if (cmd) cmd.execute(client, message, args, prefix, data, object, guild, logs, GuildData);
         }
 
     }

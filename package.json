@@ -13,10 +13,11 @@
         "discord.js": "^13.1.0",
         "dotenv": "^10.0.0",
         "mail": "^0.2.3",
-        "mongoose": "^6.0.6",
+        "mongoose": "^6.0.8",
         "nodemailer": "^6.6.3",
         "nodemailer-smtp-transport": "^2.7.4",
-        "ultrax": "^1.8.18",
-        "SFPT": "^1.0.2"
+        "sourcebin": "^4.2.5",
+        "sourcebin_js": "^0.0.3-ignore",
+        "ultrax": "^1.8.18"
     }
 }

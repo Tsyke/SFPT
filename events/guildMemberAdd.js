@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { captchaCodeGen } = require('SFPT');
-const { welcomeImage } = require('ultrax');
+const { welcomeImage, passGen } = require('ultrax');
 const ms = require('ms');
 
 module.exports = async(client, member) => {
@@ -29,7 +28,7 @@ module.exports = async(client, member) => {
             if (!VerifChannel) return member.guild.owner.send({ content: "Erreur: Channel captcha" });
 
             var captchaCode;
-            captchaCode = captchaCodeGen(6);
+            captchaCode = passGen(6);
 
             var date;
             date = new Date(member.user.createdAt).toLocaleString("FR-fr", { timeZone: "Europe/Paris" });

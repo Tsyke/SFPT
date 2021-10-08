@@ -148,6 +148,11 @@ module.exports = {
             }
             if (option === "remove") {
                 option = message.mentions.roles.first() || message.guild.roles.cache.get(args[2])
+                if (!option) {
+                    return message.channel.send({
+                        content: ":x: Erreur 401 (Unauthorized)\nRôle non présent"
+                    })
+                }
                 let createRole = await client.role.findOne({
                     guildID: message.guild.id,
                     role: option.id
