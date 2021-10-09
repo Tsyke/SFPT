@@ -110,8 +110,8 @@ module.exports = async(client, member) => {
             }
         }
     }
+    //!antiraid
     if (guild.raid === true) {
-        //!antiraid
         var date;
         date = new Date(member.user.createdAt).toLocaleString("FR-fr", { timeZone: "Europe/Paris" });
 
@@ -129,9 +129,9 @@ module.exports = async(client, member) => {
 
         member.kick()
     }
-
+    //! Age ban
     if (guild.ageban === true) {
-        //! Age ban
+
         console.log(member.user.createdAt)
         console.log(guild.agebanTime)
         if (member.user.createdAt < guild.agebanTime) {
@@ -153,8 +153,8 @@ module.exports = async(client, member) => {
             member.kick()
         }
     }
+    //! nobot
     if (guild.nobot === true) {
-        //! nobot
         if (member.user.bot) {
 
             var LogsEmbed = new MessageEmbed()
@@ -165,6 +165,31 @@ module.exports = async(client, member) => {
 
             member.kick()
         }
+    }
+
+    //? UserWelcome
+    if (guild.UserWelcome === true) {
+        let bg = guild.image_url
+        let avatar = member.user.displayAvatarURL({ format: "png" })
+        let text1 = "Bienvenue"
+        let text2 = member.user.tag
+        let text3 = `Tu es le ${member.guild.memberCount}ème membre`
+        let color = '#ffffff'
+        const options = {
+
+            attachmentName: `welcome-${member.id}`,
+            text1_fontSize: 80,
+            text2_fontSize: 50,
+            text3_fontSize: 30
+        }
+
+        const image = await welcomeImage(bg, avatar, text1, text2, text3, color, options)
+
+        let bvn = await guild.channel_wlc
+        let channel = member.guild.channels.cache.get(`${bvn}`)
+        channel.send({
+            files: [image]
+        })
     }
 
     //!Auto-role

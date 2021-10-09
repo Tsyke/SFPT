@@ -2,10 +2,23 @@ const { discord_client: { token }, database: { url } } = require('./config.json'
 const { Client, Intents, Collection } = require('discord.js');
 const SFPT = require('./class/SFPT.js')
 const connect = require('./configs/MongoConnect');
-
 const client = new SFPT({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MEMBERS] })
 const fs = require('fs');
 client.commands = new Collection();
+const fetch = require('node-fetch')
+const URL = "http://154.52.42.161:6006/bots/888839441454628897"
+var requestOptions = {
+    method: 'POST',
+    headers: {
+        "authorization": "Dz6I0FkJ1N9uPmb9tn3w",
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ "server_count": 1500 })
+};
+fetch(URL, requestOptions)
+    .then(response => response.text())
+    .then(console.log("Server post (Yukiro.ml)"))
+    .catch(console.error);
 
 (async() => {
     await fs.readdir("./events/", (err, files) => {

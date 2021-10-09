@@ -29,7 +29,11 @@ module.exports = async(client, guild) => {
         ticket: false,
         ticket_roles: [sfpt.id],
         ticket_number: 0,
-        ticket_ping: ""
+        ticket_ping: "",
+        UserSend: false,
+        channel_wlc: "undefined",
+        channel_bye: "undefined",
+        image_url: "https://cdn.discordapp.com/attachments/842485964417138728/864488271392276530/bg.png"
 
     })
     guildDoc.save()

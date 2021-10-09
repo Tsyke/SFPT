@@ -18,7 +18,11 @@ const Guild = new mongoose.Schema({
     ticket_logs: String,
     ticket_ping: String,
     ticket_roles: Array,
-    ticket_number: Number
+    ticket_number: Number,
+    image_url: String,
+    UserWelcome: Boolean,
+    channel_wlc: String,
+    channel_bye: String
 });
 
 module.exports = mongoose.model('guilds', Guild)
