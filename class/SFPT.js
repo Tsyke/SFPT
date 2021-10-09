@@ -21,6 +21,10 @@ class SFPT extends Client {
         return GuildDoc;
     }
 
+    async GetStaff() {
+
+    }
+
     async GetAccountData(email) {
         let GuildDoc = await this.accountStaff.findOne({
             email

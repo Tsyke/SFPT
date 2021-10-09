@@ -27,7 +27,10 @@ module.exports = async(client, guild) => {
         antilinks: false,
         Autorole: false,
         ticket: false,
-        ticket_roles: [sfpt.id]
+        ticket_roles: [sfpt.id],
+        ticket_number: 0,
+        ticket_ping: ""
+
     })
     guildDoc.save()
 }

@@ -16,7 +16,9 @@ const Guild = new mongoose.Schema({
     Autorole: Boolean,
     ticket: Boolean,
     ticket_logs: String,
-    ticket_roles: Array
+    ticket_ping: String,
+    ticket_roles: Array,
+    ticket_number: Number
 });
 
 module.exports = mongoose.model('guilds', Guild)

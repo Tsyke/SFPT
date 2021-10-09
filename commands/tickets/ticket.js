@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageButton, Guild } = require('discord.js');
 const { db } = require('../../models/guilds/guilds');
 
 
@@ -8,6 +8,7 @@ module.exports = {
     permission: "MANAGE_MESSAGES",
 
     async execute(client, message, args, prefix, data, object, guild, logs, GuildData) {
+
         var guildDoc;
         guildDoc = GuildData
         var option;
@@ -164,8 +165,8 @@ module.exports = {
                 var reason;
                 reason = args.join(' ').replace("create ", "");
                 if (reason) object = { userID: message.author.id, reason: reason }
-                let name = await `${message.author.username.toLowerCase()}-ticket`;
-                let channel = await message.guild.channels.cache.find(channel => channel.name === name);
+                let topic = await `${object.userID}`;
+                let channel = await message.guild.channels.cache.find(channel => channel.topic === topic);
                 if (channel) return message.reply({
                     embeds: [new MessageEmbed()
                         .setDescription(`:x: ${message.author} vous avez déjà un ticket d'ouvert: ${channel} `)
@@ -175,11 +176,12 @@ module.exports = {
                 else if (!channel) {
                     let roleDoc = await client.GetRoleTicket(message.guild.id)
                     var configRole;
-
+                    GuildData.ticket_number++
+                        await GuildData.save()
                     let everyone = message.guild.roles.cache.find((x) => x.name == "@everyone")
-                    const channel = await message.guild.channels.create(`${message.author.username}-ticket`, {
+                    const channel = await message.guild.channels.create(`ticket-${GuildData.ticket_number}`, {
                         type: "channel",
-                        topic: object.reason,
+                        topic: object.userID,
                         id: message.guild.id,
                         permissionOverwrites: [{
                                 id: message.author.id,
@@ -206,6 +208,11 @@ module.exports = {
 
                     message.reply({ embeds: [CreateEmbed] });
                     TLogs.send({ embeds: [CreateEmbed] })
+                    var role;
+                    role = message.guild.roles.cache.get(GuildData.ticket_ping)
+                    if (!role) {} else {
+                        channel.send({ content: `${role}` })
+                    }
 
                     var TicketEmbed = new MessageEmbed()
                         .setColor('GREEN')
@@ -302,7 +309,38 @@ module.exports = {
                         };
                     });
                 };
-            };
+            } else if (option === "ping") {
+                if (args[1] === "none") {
+                    GuildData = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ticket_ping: " " } })
+                    var embed = new MessageEmbed()
+                        .setDescription(`✅ Ping retiré`)
+                        .setColor('GREEN')
+                    var LogsEmbed = new MessageEmbed()
+                        .setTitle('[CONFIGURATION] Ping')
+                        .setDescription(`Ping retiré`)
+                        .addField('Modérateur:', `${message.author}`)
+                        .setColor('GREEN')
+                    logs.send({ embeds: [LogsEmbed] })
+                    message.reply({ embeds: [embed] })
+                } else {
+                    option = message.mentions.roles.first() || message.guild.roles.cache.get(args[1])
+                    if (!option) return message.reply({ content: "Erreur, rôle manquant (pour retiré le ping, faites sfpt.ticket ping none" })
+
+                    GuildData = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ticket_ping: option.id || option } })
+
+                    var embed = new MessageEmbed()
+                        .setDescription(`✅ Rôle configuré`)
+                        .setColor('GREEN')
+                    var LogsEmbed = new MessageEmbed()
+                        .setTitle('[CONFIGURATION] Ticket')
+                        .setDescription(`Rôle configuré`)
+                        .addField('Role:', `${option}`)
+                        .addField('Modérateur:', `${message.author}`)
+                        .setColor('GREEN')
+                    logs.send({ embeds: [LogsEmbed] })
+                    message.reply({ embeds: [embed] })
+                }
+            }
         };
     },
 };

@@ -34,7 +34,7 @@ module.exports = async(client, message) => {
     }
 
     //!Anti-spam
-    if (GuildData.AntiSpam === true) {
+    if (GuildData.AntiSpam === true && message.author.id !== client.user.id) {
         client.spam.findOne({ GuildID: message.guild.id, ChannelID: message.channel.id }, async(err, data) => {
             if (err) throw err;
 
