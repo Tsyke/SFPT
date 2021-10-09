@@ -47,8 +47,14 @@ module.exports = {
                     if (option === "image") {
                         option = args[2];
                         if (!option) return client.Error({ type: 'args', error: `Erreur d'argument. Écrivez l'url de l'image.` }, message);
+                        if (!args[2].includes("http")) return client.Error({ type: "syntax", error: "L'url dois commencé par https ou http" }, message)
                         GuildData = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { image_url: option } })
-                        message.reply({ content: ":white_check_mark: Paramètre modifié pour: " + `${option}` })
+                        var response;
+                        response = new MessageEmbed()
+                            .setDescription(":white_check_mark: Paramètre modifié pour: ")
+                            .setImage(`${option}`)
+                            .setColor('GREEN')
+                        message.reply({ embeds: [response] })
                     } else if (option === "welcome") {
                         option = message.mentions.channels.first() || args[2];
                         if (!option) return client.Error({ type: 'args', error: `Erreur d'argument. Inscrivez le salon` }, message);

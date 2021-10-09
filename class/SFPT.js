@@ -56,6 +56,9 @@ class SFPT extends Client {
             ArgsErrorString = message.reply(`Erreur d'argument, Arguments possible: ${error}.`);
 
             return ArgsErrorString
+        } else if (type === "syntax") {
+            var SyntaxError;
+            SyntaxError = message.reply(`Erreur de syntaxe, Syntaxe: ${error}.`);
         } else throw new TypeError("Type is not defined")
     }
 }
