@@ -1,6 +1,5 @@
 const ultrax = require('ultrax')
 module.exports = async(client, member) => {
-    console.log('Il est arrivé wesh')
     const guild = await client.GetGuildData(member.guild.id)
 
     //? UserWelcome
