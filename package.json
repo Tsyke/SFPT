@@ -10,6 +10,7 @@
     "dependencies": {
         "@sendgrid/mail": "^7.4.6",
         "canvas": "^2.8.0",
+        "discord-backup": "^3.0.1",
         "discord.js": "^13.1.0",
         "dotenv": "^10.0.0",
         "mail": "^0.2.3",
@@ -18,6 +19,7 @@
         "nodemailer-smtp-transport": "^2.7.4",
         "sourcebin": "^4.2.5",
         "sourcebin_js": "^0.0.3-ignore",
+        "superagent": "^6.1.0",
         "ultrax": "^1.8.18"
     }
 }

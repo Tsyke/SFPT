@@ -10,6 +10,8 @@ class SFPT extends Client {
         this.bot = require("../models/bot/bot")
         this.accountStaff = require('../models/admin/staffAccount')
         this.Ticketrole = require('../models/guilds/role-tickets')
+        this.BlackList = require('../models/security/blacklist')
+        this.bypass = require('../models/security/bypass')
     }
 
     async GetGuildData(guildID) {

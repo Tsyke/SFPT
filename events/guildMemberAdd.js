@@ -201,4 +201,15 @@ module.exports = async(client, member) => {
         })
     }
 
+    //! BLACKLIST
+    if (guild.bl === true) {
+        let BlDoc = await client.BlackList.findOne({
+            userID: member.id
+        })
+        if (BlDoc) {
+            member.send({ content: 'Attention, vous êtes I-BAN, à votre prochain message vous serez expuler du serveur: ' + `**${member.guild.name}**` })
+            member.guild.owner.send({ content: `${member.user.tag} est SF-BAN pour ${BlDoc.Reason}.\nPour le laisser accèder au serveur __${member.guild.name}__ veuillez faire la commande \`sfpt.bypass ${member.user.id}\`` })
+        }
+    }
+
 }

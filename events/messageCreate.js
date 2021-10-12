@@ -9,7 +9,9 @@ module.exports = async(client, message) => {
             });
     }
     var GuildData = await client.GetGuildData(message.guild.id)
-
+    let BlDoc = await client.BlackList.findOne({
+        userID: message.author.id
+    })
     var logs;
     logs = message.guild.channels.cache.get(GuildData.logs);
 
@@ -28,6 +30,16 @@ module.exports = async(client, message) => {
             const data = [];
             const object = {};
             const guild = message.guild;
+            if (BlDoc) {
+                return message.author.send({
+                    embeds: [new MessageEmbed()
+                        .setTitle(':warning: BLACKLIST')
+                        .setDescription(`Vous avez tenter d'utiliser la commande \`${command}\` \nVous ne pouvez pas utilisé de commande.`)
+                        .setFooter("Security and Safe cleaner of ennemies.")
+                        .setColor('RED')
+                    ]
+                })
+            }
             if (cmd) cmd.execute(client, message, args, prefix, data, object, guild, logs, GuildData);
         }
 
@@ -116,6 +128,35 @@ module.exports = async(client, message) => {
                 message.author.send({ embeds: [AlertMemberEmbed] })
         }
 
+    }
+
+    //! Kick Bl
+    if (GuildData.bl === true) {
+        if (message.channel.type === "text") {
+
+            client.BlackList.findOne({ userID: message.author.id }, async(err, data) => {
+                if (err) throw err;
+                if (data) {
+                    let bl = await client.BlackList.findOne({
+                        userID: message.author.id
+                    })
+                    let blDoc = await client.bypass.findOne({
+                        userID: message.author.id,
+                    }).catch(err => console.log(err))
+                    client.bypass.findOne({ guildID: message.guild.id, userID: message.author.id }, async(err, data) => {
+                        if (err) throw err;
+                        if (!data) {
+                            let reason = await bl.Reason
+                            let image = await bl.Image
+                            let mod = await bl.Name
+                            let dreason = `SFBAN :: ${reason} :: ${image}`
+                            await message.author.send(`:warning: Vous avez été kick du serveur: ${message.guild.name} car vous êtes sur la blacklist de SFPT`)
+                            await message.member.kick(dreason)
+                        }
+                    })
+                }
+            })
+        }
     }
 
 };
