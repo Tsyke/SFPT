@@ -18,11 +18,14 @@ module.exports = {
                     name: "⚠ Anti-raid",
                     value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links`"
                 }, {
+                    name: "🛫 Système de départ/arrivé",
+                    value: "`welcome`"
+                }, {
                     name: "🦺 Modération",
                     value: "`ban` `kick`"
                 }, {
                     name: "🤖 Général",
-                    value: "`ticket`"
+                    value: "`ticket` `hug` `kiss` `kill` `cuddle` `lick` `smile`"
                 }, {
                     name: "🧪 Utiles",
                     value: "`logs` `prefix`"
