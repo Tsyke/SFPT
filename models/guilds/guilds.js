@@ -22,7 +22,8 @@ const Guild = new mongoose.Schema({
     image_url: String,
     UserWelcome: Boolean,
     channel_wlc: String,
-    channel_bye: String
+    channel_bye: String,
+    webhook: Boolean
 });
 
 module.exports = mongoose.model('guilds', Guild)

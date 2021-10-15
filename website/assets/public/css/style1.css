@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(54, 53, 53);
+    font-family: 'Kiona Regular';
+}
+
+nav {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    opacity: 0.6;
+    transition: 0.5s;
+}
+
+nav a:hover {
+    background-color: black;
+    color: #fff;
+    opacity: 1;
+}
+
+.active {
+    background-color: #ddd;
+    color: black;
+}
+
+a {
+    display: flex;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    border-radius: 100px;
+    height: 60px;
+    width: 60px;
+    margin-top: -7px;
+}
+
+#s {
+    /* background-color: gray; */
+    border: 0;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+#s:hover {
+    border: 10 px;
+}
+
+#main {
+    max-width: 1280px;
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content {
+    text-align: center;
+}
+
+.SFPT {
+    text-align: center;
+    border-radius: 100px;
+    height: 140px;
+    width: 140px;
+}
+
+.SFPT_Banner {
+    border-radius: 12px;
+}
+
+input {
+    text-transform: uppercase;
+    margin-top: 10px;
+    background: linear-gradient(#e66465, #9198e5);
+    border: none;
+    height: 60px;
+    width: 150px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+input:hover {
+    background: linear-gradient(to bottom right, #e66465, #9198e5);
+    transform: translateY(-6px) translateX(6px);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 50px;
+    height: 50px;
+}

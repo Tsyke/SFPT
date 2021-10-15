@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Kiona Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Kiona Regular'), url('../fonts/Kiona-Regular.woff') format('woff');
+}

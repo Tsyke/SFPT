@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const { welcomeImage, passGen } = require('ultrax');
 const ms = require('ms');
 
@@ -157,13 +157,49 @@ module.exports = async(client, member) => {
     if (guild.nobot === true) {
         if (member.user.bot) {
 
-            var LogsEmbed = new MessageEmbed()
-                .setTitle(':information_source: Anti-boy')
-                .setDescription(`Un bot a essayer de rejoindre: \nUsername: ${member.user.username}\nTag: ${member.user.tag}`)
-                .setColor('#ff0000')
-            await logs.send({ embeds: [LogsEmbed] })
+            const valid = new MessageActionRow()
+                .addComponents(
+                    new MessageButton()
+                    .setCustomId('yes')
+                    .setLabel('OUI')
+                    .setStyle('DANGER'),
+                )
+                .addComponents(
+                    new MessageButton()
+                    .setCustomId('no')
+                    .setLabel('NON')
+                    .setStyle('SUCCESS'),
+                )
 
-            member.kick()
+
+            var JoinEmbed;
+            JoinEmbed = new MessageEmbed()
+                .setTitle("Nouveau bot rejoins")
+                .setDescription(`Tag: ${member.user.tag}\nID: ${member.user.id}`)
+            logs.send({ conent: `${member.guild.owner}`, embeds: [JoinEmbed], components: [valid] });
+
+            const filter = i => i.customId === 'close' || "delete" || "trans" && i.user.id !== client.user.id;
+
+            const collector = logs.createMessageComponentCollector({ filter });
+            collector.on('collect', async i => {
+                if (i.customId === 'yes') {
+                    var LogsEmbed = new MessageEmbed()
+                        .setTitle(':information_source: Anti-bot')
+                        .setDescription(`Un bot a essayer de rejoindre: \nUsername: ${member.user.username}\nTag: ${member.user.tag}`)
+                        .setColor('#ff0000')
+                    await logs.send({ embeds: [LogsEmbed] })
+                    member.kick()
+                } else if (i.customId === "no") {
+                    var LogsEmbed = new MessageEmbed()
+                        .setTitle(':information_source: Anti-bot')
+                        .setDescription(`Bot accepter\n Username: ${member.user.username}`)
+                        .setColor('#ff0000')
+                    return logs.send({ embeds: [LogsEmbed] })
+                }
+            })
+
+
+
         }
     }
 
@@ -194,11 +230,13 @@ module.exports = async(client, member) => {
 
     //!Auto-role
     if (guild.Autorole === true) {
-        let roleDoc = await client.GetRole(member.guild.id)
-        roleDoc.forEach((role) => {
-            console.log(role.role)
-            member.roles.add(role.role)
-        })
+        if (!member.user.bot) {
+            let roleDoc = await client.GetRole(member.guild.id)
+            roleDoc.forEach((role) => {
+                console.log(role.role)
+                member.roles.add(role.role)
+            })
+        }
     }
 
     //! BLACKLIST
