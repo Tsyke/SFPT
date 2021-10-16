@@ -36,7 +36,9 @@ module.exports = async(client, guild) => {
         UserSend: false,
         channel_wlc: "undefined",
         channel_bye: "undefined",
-        image_url: "https://cdn.discordapp.com/attachments/842485964417138728/864488271392276530/bg.png"
+        image_url: "https://cdn.discordapp.com/attachments/842485964417138728/864488271392276530/bg.png",
+        webhook: false
+
 
     })
     guildDoc.save()

@@ -16,7 +16,7 @@ module.exports = {
                 .setThumbnail(client.user.displayAvatarURL())
                 .addFields({
                     name: "⚠ Anti-raid",
-                    value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links`"
+                    value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links` `anti-webhook`"
                 }, {
                     name: "🛫 Système de départ/arrivé",
                     value: "`welcome`"

@@ -52,7 +52,7 @@ module.exports = {
                         inline: true
                     }, {
                         name: "Age-ban",
-                        value: mode[GuildData.ageban] + `(${GuildData.agebanTime} jours)`,
+                        value: mode[GuildData.ageban] + `(${GuildData.agebanTime / 86400000} jours)`,
                         inline: true
                     }, {
                         name: "Anti-bot",
@@ -65,6 +65,10 @@ module.exports = {
                     }, {
                         name: "Anti-liens",
                         value: mode[GuildData.antilinks],
+                        inline: true
+                    }, {
+                        name: "Anti-webhook",
+                        value: mode[GuildData.webhook],
                         inline: true
                     })
 
