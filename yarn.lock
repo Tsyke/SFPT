@@ -2,16 +2,16 @@
 # yarn lockfile v1
 
 
-"@discordjs/builders@^0.5.0":
-  "integrity" "sha512-HP5y4Rqw68o61Qv4qM5tVmDbWi4mdTFftqIOGRo33SNPpLJ1Ga3KEIR2ibKofkmsoQhEpLmopD1AZDs3cKpHuw=="
-  "resolved" "https://registry.npmjs.org/@discordjs/builders/-/builders-0.5.0.tgz"
-  "version" "0.5.0"
+"@discordjs/builders@^0.6.0":
+  "integrity" "sha512-mH3Gx61LKk2CD05laCI9K5wp+a3NyASHDUGx83DGJFkqJlRlSV5WMJNY6RS37A5SjqDtGMF4wVR9jzFaqShe6Q=="
+  "resolved" "https://registry.npmjs.org/@discordjs/builders/-/builders-0.6.0.tgz"
+  "version" "0.6.0"
   dependencies:
     "@sindresorhus/is" "^4.0.1"
     "discord-api-types" "^0.22.0"
     "ow" "^0.27.0"
     "ts-mixer" "^6.0.0"
-    "tslib" "^2.3.0"
+    "tslib" "^2.3.1"
 
 "@discordjs/collection@^0.2.1":
   "integrity" "sha512-vhxqzzM8gkomw0TYRF3tgx7SwElzUlXT/Aa41O7mOcyN6wIJfj5JmDWaO5XGKsGSsNx7F3i5oIlrucCCWV1Nog=="
@@ -42,10 +42,10 @@
     "semver" "^7.3.4"
     "tar" "^6.1.0"
 
-"@sapphire/async-queue@^1.1.4":
-  "integrity" "sha512-fFrlF/uWpGOX5djw5Mu2Hnnrunao75WGey0sP0J3jnhmrJ5TAPzHYOmytD5iN/+pMxS+f+u/gezqHa9tPhRHEA=="
-  "resolved" "https://registry.npmjs.org/@sapphire/async-queue/-/async-queue-1.1.4.tgz"
-  "version" "1.1.4"
+"@sapphire/async-queue@^1.1.5":
+  "integrity" "sha512-M5CbgMgesemMUCQo5G/InGHvp+GZx6uuJNV1iwvSWD8EFNVrfxaTcqhcAXM3MPYkjlxvNnoDNk0R1lfzvca6LA=="
+  "resolved" "https://registry.npmjs.org/@sapphire/async-queue/-/async-queue-1.1.6.tgz"
+  "version" "1.1.6"
 
 "@sendgrid/client@^7.4.6":
   "integrity" "sha512-g3vjDyN1hDTKwPe9THGNuf4HKkx+cC3dSOM7SM88Pg6Q9SRI+GDGzsdnGRfFFpsdHBVVrHCSk0n2f4YZVCv4zA=="
@@ -156,10 +156,10 @@
     "@types/node" "*"
     "@types/webidl-conversions" "*"
 
-"@types/ws@^7.4.7":
-  "integrity" "sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww=="
-  "resolved" "https://registry.npmjs.org/@types/ws/-/ws-7.4.7.tgz"
-  "version" "7.4.7"
+"@types/ws@^8.2.0":
+  "integrity" "sha512-cyeefcUCgJlEk+hk2h3N+MqKKsPViQgF5boi9TTHSK+PoR9KWBb/C5ccPcDyAqgsbAYHTwulch725DV84+pSpg=="
+  "resolved" "https://registry.npmjs.org/@types/ws/-/ws-8.2.0.tgz"
+  "version" "8.2.0"
   dependencies:
     "@types/node" "*"
 
@@ -408,6 +408,11 @@
   "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.22.0.tgz"
   "version" "0.22.0"
 
+"discord-api-types@^0.23.1":
+  "integrity" "sha512-igWmn+45mzXRWNEPU25I/pr8MwxHb767wAr51oy3VRLRcTlp5ADBbrBR0lq3SA1Rfw3MtM4TQu1xo3kxscfVdQ=="
+  "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.23.1.tgz"
+  "version" "0.23.1"
+
 "discord-backup@^3.0.1":
   "integrity" "sha512-V0KsDHJPVx+zjWPv11alWmHSQ/CO4Mnzko3afDotz6U45py37igjFOCfHCqV3Q3AT6kk7Hi4H5pgA3H7qPw2zw=="
   "resolved" "https://registry.npmjs.org/discord-backup/-/discord-backup-3.0.1.tgz"
@@ -415,19 +420,19 @@
   dependencies:
     "discord.js" "^13.0.1"
 
-"discord.js@^13.0.1", "discord.js@^13.1.0":
-  "integrity" "sha512-gxO4CXKdHpqA+WKG+f5RNnd3srTDj5uFJHgOathksDE90YNq/Qijkd2WlMgTTMS6AJoEnHxI7G9eDQHCuZ+xDA=="
-  "resolved" "https://registry.npmjs.org/discord.js/-/discord.js-13.1.0.tgz"
-  "version" "13.1.0"
+"discord.js@^13.0.1", "discord.js@^13.1.0", "discord.js@^13.2.0":
+  "integrity" "sha512-nyxUvL8wuQG38zx13wUMkpcA8koFszyiXdkSLwwM9opKW2LC2H5gD0cTZxImeJ6GtEnKPWT8xBiE8lLBmbNIhw=="
+  "resolved" "https://registry.npmjs.org/discord.js/-/discord.js-13.2.0.tgz"
+  "version" "13.2.0"
   dependencies:
-    "@discordjs/builders" "^0.5.0"
+    "@discordjs/builders" "^0.6.0"
     "@discordjs/collection" "^0.2.1"
     "@discordjs/form-data" "^3.0.1"
-    "@sapphire/async-queue" "^1.1.4"
-    "@types/ws" "^7.4.7"
-    "discord-api-types" "^0.22.0"
+    "@sapphire/async-queue" "^1.1.5"
+    "@types/ws" "^8.2.0"
+    "discord-api-types" "^0.23.1"
     "node-fetch" "^2.6.1"
-    "ws" "^7.5.1"
+    "ws" "^8.2.3"
 
 "dot-prop@^6.0.1":
   "integrity" "sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA=="
@@ -955,6 +960,11 @@
   "resolved" "https://registry.npmjs.org/optional-require/-/optional-require-1.0.3.tgz"
   "version" "1.0.3"
 
+"os-utils@^0.0.14":
+  "integrity" "sha1-KeURaXsZgrjGJ3Ihdf45eX72QVY="
+  "resolved" "https://registry.npmjs.org/os-utils/-/os-utils-0.0.14.tgz"
+  "version" "0.0.14"
+
 "ow@^0.27.0":
   "integrity" "sha512-SGnrGUbhn4VaUGdU0EJLMwZWSupPmF46hnTRII7aCLCrqixTAC5eKo8kI4/XXf1eaaI8YEVT+3FeGNJI9himAQ=="
   "resolved" "https://registry.npmjs.org/ow/-/ow-0.27.0.tgz"
@@ -1240,7 +1250,7 @@
   "resolved" "https://registry.npmjs.org/ts-mixer/-/ts-mixer-6.0.0.tgz"
   "version" "6.0.0"
 
-"tslib@^2.3.0":
+"tslib@^2.3.1":
   "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
   "version" "2.3.1"
@@ -1250,12 +1260,12 @@
   "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-1.4.0.tgz"
   "version" "1.4.0"
 
-"ultrax@^1.8.18":
-  "integrity" "sha512-lS/YWOTmlZ6W+yfFcEDuexsZb2holP6bz2Dxt3GTMttuGsYAHJtvV4ITUCLnWjFtTabNIHM/k5wcWMsw6seSbA=="
-  "resolved" "https://registry.npmjs.org/ultrax/-/ultrax-1.8.18.tgz"
-  "version" "1.8.18"
+"ultrax@^1.9.0":
+  "integrity" "sha512-ernIQqI3xoF+CRElZTkVavD4kq2GmEOgMhpr+j2fGTBaTIshalbRAR+LPXj2ORH2zOaO85r8sD+D5BxRfr6+uA=="
+  "resolved" "https://registry.npmjs.org/ultrax/-/ultrax-1.9.0.tgz"
+  "version" "1.9.0"
   dependencies:
-    "discord.js" "^13.0.1"
+    "discord.js" "^13.2.0"
     "mongoose" "^5.13.2"
     "node-fetch" "^2.6.1"
 
@@ -1299,10 +1309,10 @@
   "resolved" "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
   "version" "1.0.2"
 
-"ws@^7.5.1":
-  "integrity" "sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w=="
-  "resolved" "https://registry.npmjs.org/ws/-/ws-7.5.5.tgz"
-  "version" "7.5.5"
+"ws@^8.2.3":
+  "integrity" "sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA=="
+  "resolved" "https://registry.npmjs.org/ws/-/ws-8.2.3.tgz"
+  "version" "8.2.3"
 
 "yallist@^4.0.0":
   "integrity" "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="

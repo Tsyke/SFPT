@@ -17,9 +17,10 @@
         "mongoose": "^6.0.8",
         "nodemailer": "^6.6.3",
         "nodemailer-smtp-transport": "^2.7.4",
+        "os-utils": "^0.0.14",
         "sourcebin": "^4.2.5",
         "sourcebin_js": "^0.0.3-ignore",
         "superagent": "^6.1.0",
-        "ultrax": "^1.8.18"
+        "ultrax": "^1.9.0"
     }
 }

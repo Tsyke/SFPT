@@ -70,9 +70,11 @@ module.exports = async(client, message) => {
     });
     transporter.verify(function(error, success) {
         if (error) {
-            console.log("Server mailer return: " + 501 + `\n\n` + error.stack);
+            console.log("Server mailer return: \x1b[33m" + 501 + `\n\n` + error.stack);
         } else {
-            console.log("Server mailer return: " + 200);
+            console.log("Server mailer return: \x1b[33m" + 200);
         }
     });
+    console.log(`\x1b[37mSFPT connecter sur: ` + `\x1b[32m${client.guilds.cache.size} serveurs`)
+    console.log("\x1b[37mSFPT connecter avec: " + `\x1b[31m${client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)} utilisateurs\x1b[37m`)
 };

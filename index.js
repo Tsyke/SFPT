@@ -7,6 +7,9 @@ const fs = require('fs');
 client.commands = new Collection();
 const fetch = require('node-fetch')
 const URL = "http://154.52.42.161:6006/bots/888839441454628897"
+
+
+
 var requestOptions = {
     method: 'POST',
     headers: {
@@ -46,7 +49,14 @@ fetch(URL, requestOptions)
     client.login(token).then(
         console.log('Bot Loggin'),
         await connect(),
-        console.log('DataBase connect on SFPT')
+        console.log('\x1b[34mDataBase\x1b[37m connect on \x1b[36mSFPT')
 
     )
 })();
+
+process.on("unhandledRejection", (e) => {
+    var errorChannel = client.channels.cache.get("893978765762387968")
+    if (!errorChannel) return
+    errorChannel.send({ content: `<@805514364277882901>` })
+    errorChannel.send({ content: `\`\`\`\n${e.stack}\`\`\`` })
+})

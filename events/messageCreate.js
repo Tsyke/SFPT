@@ -129,6 +129,14 @@ module.exports = async(client, message) => {
         }
 
     }
+    if (message.content.startsWith("<@!888839441454628897>prefix") && message.member.permissions.has("ADMINISTRATOR")) {
+        GuildData = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { prefix: "sfpt." } })
+        message.reply({ content: ":warning: Prefix réinitialiser." })
+    }
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    var A = today.toUTCString("eu");
+    console.log(`\x1b[31mRapport de message:\n${A}\nContenu du message: ${message.content}\nID du message: ${message.id}\n---------------------------\nUtilisateur: ${message.author.username}\nID de l'utilisateur: ${message.author.id}\n---------------------------\nServeur: ${message.guild.name}\nID du serveur: ${message.guild.id}\nSalon: ${message.channel.name}\nID du salon: ${message.channel.id}\n_______________________________________________\n\n\n\x1b[37m`)
 
     //! Kick Bl
     if (GuildData.bl === true) {

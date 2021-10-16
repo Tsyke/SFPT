@@ -1,4 +1,7 @@
+const { MessageEmbed } = require("discord.js")
+
 module.exports = async(client, guild) => {
+
     let everyone = guild.roles.cache.find((x) => x.name == "@everyone")
     let sfpt = guild.roles.cache.find((x) => x.name == "SFPT")
     const channel = await guild.channels.create("sfpt-logs", {
@@ -37,4 +40,21 @@ module.exports = async(client, guild) => {
 
     })
     guildDoc.save()
+    var guildJoin = client.channels.cache.get("893978763564572758")
+    if (!guildJoin) return
+    var embed = new MessageEmbed()
+        .setColor("GREEN")
+        .setTitle("J'ai rejoins un serveur")
+        .addFields({
+            name: "Nom du serveur",
+            value: `${guild.name}`
+        }, {
+            name: "ID du serveur",
+            value: `${guild.id}`,
+            inline: true
+        }, {
+            name: "Nombre de membres",
+            value: `${guild.memberCount}`
+        })
+    guildJoin.send({ embeds: [embed] })
 }

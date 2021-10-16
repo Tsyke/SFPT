@@ -5,7 +5,7 @@ module.exports = {
     aliases: "h",
     permission: "Aucune",
     owner: false,
-    BotPerm: 260717412343,
+    BotPerm: 8,
 
     async execute(client, message, args) {
         if (!args[0]) {
@@ -22,13 +22,13 @@ module.exports = {
                     value: "`welcome`"
                 }, {
                     name: "🦺 Modération",
-                    value: "`ban` `kick`"
+                    value: "`panel` `ban` `kick`"
                 }, {
                     name: "🤖 Général",
                     value: "`ticket` `hug` `kiss` `kill` `cuddle` `lick` `smile`"
                 }, {
                     name: "🧪 Utiles",
-                    value: "`logs` `prefix`"
+                    value: "`logs` `prefix` `bot-info`"
                 }, {
                     name: "❤ Plus",
                     value: `[Invité le bot](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${this.BotPerm}&scope=bot)\n[Rejoindre le support](https://discord.gg/8pbVZVCAwH)`

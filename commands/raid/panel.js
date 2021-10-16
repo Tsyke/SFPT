@@ -52,7 +52,7 @@ module.exports = {
                         inline: true
                     }, {
                         name: "Age-ban",
-                        value: mode[GuildData.ageban],
+                        value: mode[GuildData.ageban] + `(${GuildData.agebanTime} jours)`,
                         inline: true
                     }, {
                         name: "Anti-bot",
@@ -61,10 +61,6 @@ module.exports = {
                     }, {
                         name: "Anti-spam",
                         value: mode[GuildData.AntiSpam],
-                        inline: true
-                    }, {
-                        name: "Anti-liens",
-                        value: mode[GuildData.antilinks],
                         inline: true
                     }, {
                         name: "Anti-liens",
@@ -125,7 +121,7 @@ module.exports = {
                         inline: true
                     }, {
                         name: "Prefix actuelle",
-                        value: "`" + `${prefix}` + "`",
+                        value: "`" + `${prefix}` + "`\nCommande de récupérations de prefix en cas d'oublie: @sfptprefix",
                         inline: true
                     }, {
                         name: "Logs",
