@@ -1,7 +1,6 @@
 const { database: { url } } = require('../config.json')
 
-const mongoose = require('mongoose')
-const URL = process.env;
+const mongoose = require('mongoose');
 let connect = url;
 module.exports = async() => {
     await mongoose.connect(connect, {

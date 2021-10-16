@@ -123,7 +123,7 @@ module.exports = {
                 const Option = new MessageActionRow()
                     .addComponents(
                         new MessageButton()
-                        .setCustomId('delete')
+                        .setCustomId('ticketdelete')
                         .setLabel('Delete ticket')
                         .setStyle('SUCCESS'),
                     )
@@ -135,32 +135,12 @@ module.exports = {
                     )
                     .addComponents(
                         new MessageButton()
-                        .setCustomId('close')
+                        .setCustomId('ticketclose')
                         .setLabel('Close ticket')
                         .setStyle('DANGER')
                     )
 
-                var open;
-                open = new MessageActionRow()
-                    .addComponents(
-                        new MessageButton()
-                        .setCustomId('open')
-                        .setLabel('Open ticket')
-                        .setStyle('SUCCESS')
-                    )
-                const valid = new MessageActionRow()
-                    .addComponents(
-                        new MessageButton()
-                        .setCustomId('yes')
-                        .setLabel('OUI')
-                        .setStyle('DANGER'),
-                    )
-                    .addComponents(
-                        new MessageButton()
-                        .setCustomId('no')
-                        .setLabel('NON')
-                        .setStyle('SUCCESS'),
-                    )
+
 
                 var reason;
                 reason = args.join(' ').replace("create ", "");
@@ -219,95 +199,6 @@ module.exports = {
                         .setThumbnail(message.author.displayAvatarURL({ dynamic: true, size: 512 }))
                         .setDescription(`Nouveau ticket ouvert:\nUtilisateur: ${message.author}\nID: ${object.userID}\nRaison: ${object.reason}`)
                     channel.send({ embeds: [TicketEmbed], components: [Option] })
-                    const filter = i => i.customId === 'close' || "delete" || "trans" && i.user.id !== client.user.id;
-
-                    const collector = channel.createMessageComponentCollector({ filter });
-
-                    collector.on('collect', async i => {
-                        if (i.customId === 'delete') {
-                            //!Faire un double collect, (Êtes-vous sur de vouloir supprimé le ticket ?)
-                            var embed = new MessageEmbed()
-                                .setDescription(`Êtes-vous sur de vouloir supprimer le ticket définitivement ?`)
-                                .setColor('RED')
-                            i.reply({ embeds: [embed], components: [valid] })
-                            const filter = i => i.customId === 'yes' || "no" && i.user.id !== client.user.id;
-
-                            const collector = channel.createMessageComponentCollector({ filter });
-                            collector.on('collect', async i => {
-                                if (i.customId === 'no') {
-                                    i.reply({ content: "Annulé" })
-                                }
-                                if (i.customId === 'yes') {
-                                    var DeleteT = new MessageEmbed()
-                                        .setDescription(`✅ Ticket fermé: ${channel.name}`)
-                                        .setColor('GREEN');
-                                    TLogs.send({ embeds: [DeleteT] })
-                                    channel.delete();
-                                }
-                            })
-                        }
-                        if (i.customId === "close") {
-                            channel.permissionOverwrites.edit(message.member.user, {
-                                VIEW_CHANNEL: false,
-                                SEND_MESSAGES: false,
-                                ATTACH_FILES: false,
-                                READ_MESSAGE_HISTORY: false,
-                            })
-                            i.reply({ content: "Ticket fermé", components: [open] })
-                            const filter = i => i.customId === "open" && i.user.id !== client.user.id;
-
-                            const collector = channel.createMessageComponentCollector({ filter });
-                            collector.on('collect', async i => {
-                                if (i.customId === 'open') {
-                                    channel.permissionOverwrites.edit(message.member.user, {
-                                        VIEW_CHANNEL: true,
-                                        SEND_MESSAGES: true,
-                                        ATTACH_FILES: true,
-                                        READ_MESSAGE_HISTORY: true,
-                                    });
-                                    i.reply({ content: "Ticket ouvert" })
-                                }
-
-                            })
-                        }
-                        if (i.customId === "trans") {
-                            channel.messages.fetch().then(async(messages) => {
-                                const sourcebin = require('sourcebin_js');
-
-                                console.log("Message: OK")
-                                const output = messages.map(m => `${new Date(m.createdAt).toLocaleString('fr-EU')} - ${m.author.tag}: ${m.attachments.size > 0 ? m.attachments.first().proxyURL : m.content}`).join('\n');
-
-                                let response;
-
-                                response = await sourcebin.create([{
-                                    name: ' ',
-                                    content: output,
-                                    languageId: 'text',
-                                }, ], {
-                                    title: `Transcription du ticket: ${channel.name}`,
-                                    description: ' ',
-                                });
-
-                                console.log("Message: OK")
-
-                                const trans = new MessageActionRow()
-                                    .addComponents(
-                                        new MessageButton()
-                                        .setLabel('Ouvrir la transcription')
-                                        .setStyle('LINK')
-                                        .setURL(response.url)
-                                    )
-                                console.log("Message: OK")
-
-                                const embed = new MessageEmbed()
-                                    .setDescription(`Voici votre transcritpion`)
-                                    .setColor('GREEN');
-                                console.log("Message: OK")
-
-                                i.reply({ embeds: [embed], components: [trans] });
-                            });
-                        };
-                    });
                 };
             } else if (option === "ping") {
                 if (args[1] === "none") {
