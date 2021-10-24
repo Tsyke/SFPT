@@ -484,6 +484,11 @@
   dependencies:
     "minipass" "^3.0.0"
 
+"fs-nextra@^0.4.7":
+  "integrity" "sha512-N61ZytY7cF3VlPTQ+o90XK+TsdOaUPeX0cpwy5oOVbXaneSO6KorpsR2xSQr+GJbItkWzgu3h4ypSqCWjTeZKg=="
+  "resolved" "https://registry.npmjs.org/fs-nextra/-/fs-nextra-0.4.7.tgz"
+  "version" "0.4.7"
+
 "fs.realpath@^1.0.0":
   "integrity" "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
@@ -656,6 +661,13 @@
   dependencies:
     "json-buffer" "3.0.1"
 
+"klasa@^0.5.0":
+  "integrity" "sha512-BrXP/rCvL7Sh4T3hnSOJTDbT5JT3Q3Di4sAg537OCzH/eRnYbeny4J99vkTGE5Lkm241HNH+kd+DURWaavBa6A=="
+  "resolved" "https://registry.npmjs.org/klasa/-/klasa-0.5.0.tgz"
+  "version" "0.5.0"
+  dependencies:
+    "fs-nextra" "^0.4.7"
+
 "lodash.isequal@^4.5.0":
   "integrity" "sha1-QVxEePK8wwEgwizhDtMib30+GOA="
   "resolved" "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz"
@@ -793,7 +805,7 @@
   "resolved" "https://registry.npmjs.org/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz"
   "version" "1.0.2"
 
-"mongoose@*", "mongoose@^5.13.2":
+"mongoose@^5.13.2":
   "integrity" "sha512-JbLw5ie0LJxm7V9LoNxRY//6cyFJf0cOpON2TWUWvF9pabil6ArfECL3xHV2N+mwwO4gXiIa+c0pwTzDUVTgqw=="
   "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-5.13.9.tgz"
   "version" "5.13.9"

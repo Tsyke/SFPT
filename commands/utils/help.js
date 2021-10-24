@@ -22,7 +22,7 @@ module.exports = {
                     value: "`welcome`"
                 }, {
                     name: "🦺 Modération",
-                    value: "`panel` `ban` `kick`"
+                    value: "`panel` `ban` `kick` `add-emoji` `channelclear` `clear` `top-invite`"
                 }, {
                     name: "🤖 Général",
                     value: "`ticket` `hug` `kiss` `kill` `cuddle` `lick` `smile`"
@@ -31,7 +31,8 @@ module.exports = {
                     value: "`logs` `prefix` `bot-info`"
                 }, {
                     name: "❤ Plus",
-                    value: `[Invité le bot](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${this.BotPerm}&scope=bot)\n[Rejoindre le support](https://discord.gg/8pbVZVCAwH)`
+                    value: `[Invité le bot](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=${this.BotPerm}&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=bot%20applications.commands)\n[Rejoindre le support](https://discord.gg/8pbVZVCAwH)`
+
                 })
             message.reply({ embeds: [MemberEmbed] })
         } else {

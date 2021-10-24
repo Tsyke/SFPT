@@ -1,27 +1,11 @@
 const { discord_client: { token }, database: { url } } = require('./config.json')
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Intents, Collection, version } = require('discord.js');
 const SFPT = require('./class/SFPT.js')
 const connect = require('./configs/MongoConnect');
 const client = new SFPT({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_MEMBERS] })
 const fs = require('fs');
 client.commands = new Collection();
-const fetch = require('node-fetch')
-const URL = "http://154.52.42.161:6006/bots/888839441454628897"
-
-
-
-var requestOptions = {
-    method: 'POST',
-    headers: {
-        "authorization": "Dz6I0FkJ1N9uPmb9tn3w",
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ "server_count": 1500 })
-};
-fetch(URL, requestOptions)
-    .then(response => response.text())
-    .then(console.log("Server post (Yukiro.ml)"))
-    .catch(console.error);
+client.command = new Collection();
 
 (async() => {
     await fs.readdir("./events/", (err, files) => {
@@ -43,8 +27,85 @@ fetch(URL, requestOptions)
             client.commands.set(command.name, command);
         };
     });
-    console.log('_________________________________________________________________________')
+    await fs.readdirSync('./command').forEach(dirs => {
+        const command = fs.readdirSync(`./command/${dirs}`).filter(files => files.endsWith('.js'));
 
+        for (const file of command) {
+            const commandS = require(`./command/${dirs}/${file}`);
+            console.log(`Chargement de la commande \x1b[34m\x1b[4m${file}\x1b[0m dans le département \x1b[34m\x1b[4m${dirs}\x1b[0m`);
+            client.command.set(commandS.name, commandS);
+        };
+    });
+    console.log('_________________________________Partie "/" commands________________________________________')
+
+    //!Partie "/" commands
+    global.client = client
+
+    client.on('ready', async() => {
+
+        console.log(`\nConnecté en tant que : ${client.user.tag}\n`)
+
+        const commandFiles = fs.readdirSync('./slash_commands').filter(file => file.endsWith('.js'));
+        for (const file of commandFiles) {
+            const command = require(`./slash_commands/${file}`);
+            client.api.applications(client.user.id).guilds('893915741789782067').commands.post({
+                data: {
+                    name: command.name,
+                    description: command.description,
+                    options: command.commandOptions
+                }
+            })
+
+            if (command.global == true) {
+                client.api.applications(client.user.id).commands.post({
+                    data: {
+                        name: command.name,
+                        description: command.description,
+                        options: command.commandOptions
+                    }
+                })
+            }
+            client.commands.set(command.name, command);
+            console.log(`Commande posté : ${command.name} de ${file} (${command.global ? "global" : "guild"})`)
+        }
+        console.log("")
+
+        let cmdArrGlobal = await client.api.applications(client.user.id).commands.get()
+        let cmdArrGuild = await client.api.applications(client.user.id).guilds('893915741789782067').commands.get()
+        cmdArrGlobal.forEach(element => {
+            console.log("Commande globale chargée : " + element.name + " (" + element.id + ")")
+        });
+        console.log("")
+        cmdArrGuild.forEach(element => {
+            console.log("Commande de guilde chargée : " + element.name + " (" + element.id + ")")
+        });
+        console.log("")
+        console.log("Version de l'API Discord: " + version)
+        console.log("")
+        console.log("Version de NodeJS: " + process.version)
+
+    });
+
+    client.ws.on('INTERACTION_CREATE', async interaction => {
+
+        if (!client.commands.has(interaction.data.name)) return;
+
+        try {
+            client.commands.get(interaction.data.name).execute(interaction);
+        } catch (error) {
+            console.log(`Erreur de commande: ${interaction.data.name} : ${error.stack}`);
+            console.log(`${error.stack}\n`)
+            client.api.interactions(interaction.id, interaction.token).callback.post({
+                data: {
+                    type: 4,
+                    data: {
+                        content: `Désolé, une erreur s'est produite lors de l'exécution de cette commande !`
+                    }
+                }
+            })
+        }
+
+    })
 
     client.login(token).then(
         console.log('Bot Loggin'),

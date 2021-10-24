@@ -29,7 +29,7 @@ module.exports = {
                 if (option === "enable") {
                     if (!GuildData) return client.Error({ type: 'db', error: `Impossible de trouver le serveur dans la base de donnée` }, message);
                     if (GuildData.UserWelcome === true) return message.reply({ content: ':warning: Message déjà activé' })
-                    if (GuildData.channel_wlc === "undefined") return client.Error({ type: "db", error: "Aucun salon n'a été définie" })
+                    if (GuildData.channel_wlc === "undefined") return client.Error({ type: "db", error: "Aucun salon n'a été définie" }, message)
                     GuildData = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { UserWelcome: true } })
                     message.reply({ content: ":white_check_mark: Message activé." })
                     if (!logs) return message.channel.send({ content: ":warning: Erreur de logs" });

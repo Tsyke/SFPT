@@ -1,7 +1,15 @@
 const AntiSpam = new Map();
 const { MessageEmbed } = require('discord.js')
 module.exports = async(client, message) => {
+    if(message.channel.type === 'dm') {
+        var Prefix = "/"
+        const args = message.content.slice(Prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
+        const cmd = client.command.get(command) || client.command.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 
+        if (cmd) cmd.execute(client, message, args);
+
+    }
     if (message.channel.id == "893980732127580180" && message.author.id == "893979514848280637" && message.content == "!!ping") {
         message.channel.send("...")
             .then((m) => {

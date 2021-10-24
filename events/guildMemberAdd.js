@@ -58,7 +58,7 @@ module.exports = async(client, member) => {
             NoFailCodeCaptcha = `:white_check_mark: ${member} a passé la vérification`
 
             var bg;
-            bg = "https://cdn.discordapp.com/attachments/888840211184898099/889193912399437924/unknown.png";
+            bg = guild.image_url;
 
             var avatar;
             avatar = "https://cdn.discordapp.com/attachments/874987314261159977/889204014955261952/15afdc7b92c8af3b4b084222641bc5cd.png"

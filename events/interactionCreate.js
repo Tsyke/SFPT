@@ -200,6 +200,17 @@ module.exports = async(client, i) => {
                     inline: true
                 })
             i.reply({ embeds: [PanelEmbed] })
+        } else if (i.customId === "rsavalid") {
+            if (i.member.id !== '401067518774476800') {
+                var msg = await i.reply({ content: `${i.member}, vous n'êtes pas authorisé à faire ceci.` })
+                return // await setTimeout(function() {
+                //     msg.delete()
+                // }, 2000)
+            }
+            var embed = new MessageEmbed()
+                .setDescription(`${i.member} à terminé l'annonce !`)
+                .setColor("BLUE")
+            i.message.edit({ content: " ", embeds: [embed] })
         }
     }
 }

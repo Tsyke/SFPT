@@ -1,0 +1,26 @@
+a {
+    display: flex;
+    text-decoration: none;
+}
+nav{
+    justify-content: center;
+    text-align: center;
+    background-color: #4e54c8!important
+}
+nav ul {
+    display: flex;
+    list-style: none;
+
+}
+
+loginPanel{
+float: right;
+margin-right: 9px;
+box-shadow: 0 0 9px black;
+}
+
+elementPanel{
+    text-align: center;
+    justify-content: center;
+    margin-right: 9px;
+    }
