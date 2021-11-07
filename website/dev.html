@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="SFPT">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Bot anti-raid || Neutralization of enemies.">
+    <meta name="description" content="Bot anti-raid || Neutralization of enemies.">
+    <meta name="theme-color" content="#d2efe6">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="og:image" content="https://cdn.discordapp.com/attachments/842485964417138728/863147464751841310/icon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="includes" href="./dynamics/includes/nav.html">
+    <link rel="stylesheet" href="./public/assets/css/main.css">
+    <link rel="stylesheet" href="./public/assets/css/common.css">
+    <link rel="stylesheet" href="./public/assets/css/buttons.css">
+    <title>SFPT - Bot</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+    
+    .e {
+        font-family: Kiona Regular;
+    }
+</style>
+
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html"><img src="https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png" width="70" height="70"></a>
+            </div>
+            <div class="main_list" id="mainListDiv">
+                <ul>
+                    <li><a href="./index.html">Acceuil</a></li>
+                    <li><a href="https://discord.gg/X4kGjGKtH5">Contact</a></li>
+                    <li><a href="#">Développeur</a></li>
+                    <!-- <li><a href="#">   Documentation</a></li> -->
+                </ul>
+            </div>
+
+        </div>
+        </div>
+    </nav>
+    <br><br><br><br>
+
+    <div class="e c title">
+        <h1 class="e c ">L'équipe d'SFPT</h1>
+    </div>
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/805514364277882901/a_ac0fecebcdc163be248996dd45da4f74.gif" class="icon">
+        <h2 class="title e">
+            MD★eev#9746
+        </h2>
+
+        <p class="desc e c">Développeur du Projet SFPT</p>
+        <a href="#" class="button small">SFPT</a>
+
+    </div>
+
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/570995666562842634/a_4c1480593d2cd9cb884220c49b5b42fc.gif" class="icon">
+        <h2 class="title e">
+            bou#2684
+        </h2>
+
+        <p class="desc e c">Cheffe de publicité</p>
+        <a href="#" class="button small">None</a>
+
+    </div>
+
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/805514364277882901/a_ac0fecebcdc163be248996dd45da4f74.gif" class="icon">
+        <h2 class="title e">
+            TS★win#2509
+        </h2>
+
+        <p class="desc e c">Responsable des annonces</p>
+        <a href="#" class="button small">None</a>
+
+    </div>
+
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/874703177377792072/eeab9449232091a28027b94135e60ebe.png" class="icon">
+        <h2 class="title e">
+            Ryūji#8540
+        </h2>
+
+        <p class="desc e c">Responsable Recrutement</p>
+        <a href="#" class="button small">None</a>
+
+    </div>
+    <br>
+    <h1 class="e c ">Soutient du projet SFPT</h1>
+
+
+
+</body>
+<script>
+    var mainListDiv = document.getElementById("mainListDiv"),
+        mediaButton = document.getElementById("mediaButton");
+
+    mediaButton.onclick = function() {
+
+        "use strict";
+
+        mainListDiv.classList.toggle("show_list");
+        mediaButton.classList.toggle("active");
+
+    };
+    $(function() {
+        $('.btn-6')
+            .on('mouseenter', function(e) {
+                var parentOffset = $(this).offset(),
+                    relX = e.pageX - parentOffset.left,
+                    relY = e.pageY - parentOffset.top;
+                $(this).find('span').css({
+                    top: relY,
+                    left: relX
+                })
+            })
+            .on('mouseout', function(e) {
+                var parentOffset = $(this).offset(),
+                    relX = e.pageX - parentOffset.left,
+                    relY = e.pageY - parentOffset.top;
+                $(this).find('span').css({
+                    top: relY,
+                    left: relX
+                })
+            });
+        $('[href=#]').click(function() {
+            return false
+        });
+    });
+    Array.prototype.shuffle = function() {
+        let a = this;
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+</script>
+
+</html>

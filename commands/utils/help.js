@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-
+console.log("help1")
 module.exports = {
     name: "help",
     aliases: "h",
@@ -8,6 +8,8 @@ module.exports = {
     BotPerm: 8,
 
     async execute(client, message, args) {
+        console.log("help2")
+
         if (!args[0]) {
             var MemberEmbed = new MessageEmbed()
                 .setTitle(`Help de ${client.user.tag}`)
@@ -16,13 +18,16 @@ module.exports = {
                 .setThumbnail(client.user.displayAvatarURL())
                 .addFields({
                     name: "⚠ Anti-raid",
-                    value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links` `anti-webhook`"
+                    value: "`raidmode` `captcha` `allow-spam` `anti-spam` `anti-bot` `age-ban` `anti-links` `anti-webhook` `create-license` `urgence`"
                 }, {
                     name: "🛫 Système de départ/arrivé",
                     value: "`welcome`"
                 }, {
                     name: "🦺 Modération",
                     value: "`panel` `ban` `kick` `add-emoji` `channelclear` `clear` `top-invite`"
+                }, {
+                    name: "🚌 Serveur",
+                    value: "`voice`"
                 }, {
                     name: "🤖 Général",
                     value: "`ticket` `hug` `kiss` `kill` `cuddle` `lick` `smile`"

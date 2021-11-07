@@ -6,7 +6,7 @@ const Guild = new mongoose.Schema({
     logs: String,
     captcha: Boolean,
     CaptchaRole: String,
-    raid: Boolean,
+    raid: String,
     ageban: Boolean,
     agebanTime: Number,
     nobot: Boolean,
@@ -23,7 +23,14 @@ const Guild = new mongoose.Schema({
     UserWelcome: Boolean,
     channel_wlc: String,
     channel_bye: String,
-    webhook: Boolean
+    webhook: Boolean,
+    voice: String,
+    voiceA: Boolean,
+    passif: Boolean,
+    memberjoin: Boolean,
+    memberleave: Boolean,
+    msgcreate: Boolean,
+    msgdelete: Boolean
 });
 
 module.exports = mongoose.model('guilds', Guild)

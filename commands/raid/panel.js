@@ -25,6 +25,13 @@ module.exports = {
                 .setLabel('🌎 Général')
                 .setStyle('DANGER')
             )
+            // .addComponents(
+            //     new MessageButton()
+            //     .setCustomId('Panellogs')
+            //     .setLabel('🦺 Logs')
+            //     .setStyle('DANGER')
+            //     // .setDisabled(true)
+            // )
 
         var StartEmbed;
         StartEmbed = new MessageEmbed()

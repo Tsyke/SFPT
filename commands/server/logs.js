@@ -11,7 +11,7 @@ module.exports = {
         if (!message.member.permissions.has(this.permission)) return message.channel.send({ content: ":x:Vous n'avez pas la permission administrateur." })
 
         let channel = message.mentions.channels.first() || args[0];
-        if (isNaN(channel)) return message.channel.send({ content: ':x: Veuillez entrer un salon correct comme ceci: ```sfpt.set-logs mention or 853276055795793981```' })
+        if (isNaN(channel)) return message.channel.send({ content: ':x: Veuillez entrer un salon correct comme ceci: ```sfpt.logs mention or 853276055795793981```' })
         let logsDoc = await logsModel.findOne({
             guildID: message.guild.id
         })

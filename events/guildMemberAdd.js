@@ -111,6 +111,24 @@ module.exports = async(client, member) => {
         }
     }
     //!antiraid
+    if (guild.passif === true) {
+        var date;
+        date = new Date(member.user.createdAt).toLocaleString("FR-fr", { timeZone: "Europe/Paris" });
+
+        var MemberEmbed = new MessageEmbed()
+            .setTitle(':warning: RaidMode')
+            .setDescription(`Le raidmode est activé sur le serveur: **__\`${member.guild.name}\`__**`)
+            .setColor('#ff0000')
+        await member.send({ embeds: [MemberEmbed] })
+
+        var LogsEmbed = new MessageEmbed()
+            .setTitle(':information_source: RaidMode')
+            .setDescription(`Un membre a essayer de rejoindre: \nUsername: ${member.user.username}\nTag: ${member.user.tag}\nCréation du compte: ${date}`)
+            .setColor('#ff0000')
+        await logs.send({ embeds: [LogsEmbed] })
+
+        member.kick()
+    }
     if (guild.raid === true) {
         var date;
         date = new Date(member.user.createdAt).toLocaleString("FR-fr", { timeZone: "Europe/Paris" });

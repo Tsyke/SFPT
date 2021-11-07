@@ -22,7 +22,7 @@ module.exports = async(client, guild) => {
         logs: channel.id,
         captcha: false,
         CaptchaRole: guild.id,
-        raid: false,
+        raid: "false",
         ageban: false,
         agebanTime: 0,
         nobot: false,
@@ -37,9 +37,14 @@ module.exports = async(client, guild) => {
         channel_wlc: "undefined",
         channel_bye: "undefined",
         image_url: "https://cdn.discordapp.com/attachments/842485964417138728/864488271392276530/bg.png",
-        webhook: false
-
-
+        webhook: false,
+        voice: "undefined",
+        voiceA: false,
+        memberjoin: false,
+        memberleave: false,
+        msgcreate: false,
+        msgdelete: false,
+        passif: false
     })
     guildDoc.save()
     var guildJoin = client.channels.cache.get("893978763564572758")

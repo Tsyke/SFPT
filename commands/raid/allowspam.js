@@ -6,6 +6,7 @@ module.exports = {
     owner: false,
     aliases: "Aucun",
     async execute(client, message, args) {
+
         if (!args[0]) {
             return message.channel.send({
                 content: ':x:Paramètres invalide. Usage correct: `sfpt.allow-spam <channelId>`'

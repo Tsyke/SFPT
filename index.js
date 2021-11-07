@@ -38,74 +38,74 @@ client.command = new Collection();
     });
     console.log('_________________________________Partie "/" commands________________________________________')
 
-    //!Partie "/" commands
-    global.client = client
+    // //!Partie "/" commands
+    // global.client = client
 
-    client.on('ready', async() => {
+    // client.on('ready', async() => {
 
-        console.log(`\nConnecté en tant que : ${client.user.tag}\n`)
+    //     console.log(`\nConnecté en tant que : ${client.user.tag}\n`)
 
-        const commandFiles = fs.readdirSync('./slash_commands').filter(file => file.endsWith('.js'));
-        for (const file of commandFiles) {
-            const command = require(`./slash_commands/${file}`);
-            client.api.applications(client.user.id).guilds('893915741789782067').commands.post({
-                data: {
-                    name: command.name,
-                    description: command.description,
-                    options: command.commandOptions
-                }
-            })
+    //     const commandFiles = fs.readdirSync('./slash_commands').filter(file => file.endsWith('.js'));
+    //     for (const file of commandFiles) {
+    //         const command = require(`./slash_commands/${file}`);
+    //         client.api.applications(client.user.id).guilds('893915741789782067').commands.post({
+    //             data: {
+    //                 name: command.name,
+    //                 description: command.description,
+    //                 options: command.commandOptions
+    //             }
+    //         })
 
-            if (command.global == true) {
-                client.api.applications(client.user.id).commands.post({
-                    data: {
-                        name: command.name,
-                        description: command.description,
-                        options: command.commandOptions
-                    }
-                })
-            }
-            client.commands.set(command.name, command);
-            console.log(`Commande posté : ${command.name} de ${file} (${command.global ? "global" : "guild"})`)
-        }
-        console.log("")
+    //         if (command.global == true) {
+    //             client.api.applications(client.user.id).commands.post({
+    //                 data: {
+    //                     name: command.name,
+    //                     description: command.description,
+    //                     options: command.commandOptions
+    //                 }
+    //             })
+    //         }
+    //         client.commands.set(command.name, command);
+    //         console.log(`Commande posté : ${command.name} de ${file} (${command.global ? "global" : "guild"})`)
+    //     }
+    //     console.log("")
 
-        let cmdArrGlobal = await client.api.applications(client.user.id).commands.get()
-        let cmdArrGuild = await client.api.applications(client.user.id).guilds('893915741789782067').commands.get()
-        cmdArrGlobal.forEach(element => {
-            console.log("Commande globale chargée : " + element.name + " (" + element.id + ")")
-        });
-        console.log("")
-        cmdArrGuild.forEach(element => {
-            console.log("Commande de guilde chargée : " + element.name + " (" + element.id + ")")
-        });
-        console.log("")
-        console.log("Version de l'API Discord: " + version)
-        console.log("")
-        console.log("Version de NodeJS: " + process.version)
+    //     let cmdArrGlobal = await client.api.applications(client.user.id).commands.get()
+    //     let cmdArrGuild = await client.api.applications(client.user.id).guilds('893915741789782067').commands.get()
+    //     cmdArrGlobal.forEach(element => {
+    //         console.log("Commande globale chargée : " + element.name + " (" + element.id + ")")
+    //     });
+    //     console.log("")
+    //     cmdArrGuild.forEach(element => {
+    //         console.log("Commande de guilde chargée : " + element.name + " (" + element.id + ")")
+    //     });
+    //     console.log("")
+    //     console.log("Version de l'API Discord: " + version)
+    //     console.log("")
+    //     console.log("Version de NodeJS: " + process.version)
 
-    });
+    // });
 
-    client.ws.on('INTERACTION_CREATE', async interaction => {
+    // client.ws.on('INTERACTION_CREATE', async interaction => {
 
-        if (!client.commands.has(interaction.data.name)) return;
+    //     if (!client.commands.has(interaction.data.name)) return;
 
-        try {
-            client.commands.get(interaction.data.name).execute(interaction);
-        } catch (error) {
-            console.log(`Erreur de commande: ${interaction.data.name} : ${error.stack}`);
-            console.log(`${error.stack}\n`)
-            client.api.interactions(interaction.id, interaction.token).callback.post({
-                data: {
-                    type: 4,
-                    data: {
-                        content: `Désolé, une erreur s'est produite lors de l'exécution de cette commande !`
-                    }
-                }
-            })
-        }
+    //     try {
+    //         client.commands.get(interaction.data.name).execute(interaction);
+    //     } catch (error) {
+    //         console.log(`Erreur de commande: ${interaction.data.name} : ${error.stack}`);
+    //         console.log(`${error.stack}\n`)
+    //         client.api.interactions(interaction.id, interaction.token).callback.post({
+    //             data: {
+    //                 type: 4,
+    //                 data: {
+    //                     content: `Désolé, une erreur s'est produite lors de l'exécution de cette commande !`
+    //                 }
+    //             }
+    //         })
+    //     }
 
-    })
+    // })
 
     client.login(token).then(
         console.log('Bot Loggin'),
@@ -114,10 +114,26 @@ client.command = new Collection();
 
     )
 })();
-
-process.on("unhandledRejection", (e) => {
-    var errorChannel = client.channels.cache.get("893978765762387968")
+process.on("unhandledRejection", async(e) => {
+    var errorChannel = client.channels.cache.get("901989646660161536")
     if (!errorChannel) return
+
+    let date_ob = new Date();
+    let date = ("0" + date_ob.getDate()).slice(-2);
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+    let year = date_ob.getFullYear();
+    let hours = date_ob.getHours();
+    let minutes = date_ob.getMinutes();
+    let seconds = date_ob.getSeconds();
+    let file = date + "-" + month + "-" + year + "_" + hours + "." + minutes + "." + seconds
+
+    var fs = require('fs')
+    var logger = fs.createWriteStream(`./logs/${file}.txt`, {
+        flags: 'a'
+    })
+    logger.write(e.stack)
+
     errorChannel.send({ content: `<@805514364277882901>` })
-    errorChannel.send({ content: `\`\`\`\n${e.stack}\`\`\`` })
+    errorChannel.send({ content: `\`\`\`${e.message}\`\`\`\n\nFichier logs stocker dans \`./logs/${file}.txt\`` })
+
 })

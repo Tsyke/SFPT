@@ -48,13 +48,8 @@ module.exports = {
                         inline: true
                     }, {
                         name: 'Créateur',
-                        value: `Le créateur de SFPT est <@805514364277882901>`,
+                        value: `Le créateur <@805514364277882901>`,
                         inline: false
-                    }, {
-                        name: '✨ Objectif',
-                        value: `\`${client.guilds.cache.size}\`/75 serveurs`,
-                        inline: false
-
                     }, {
                         name: '🔢・Nombres de commandes.',
                         value: `\`${client.commands.size}\` commandes.`,
@@ -93,7 +88,7 @@ module.exports = {
                     name: '**__Statistiques__**',
                     value: `
                         **Base de donnée:** MongoDB || DBeaver
-                        **Nombres de serveurs:** \`${client.guilds.cache.size} serveurs\`\n
+                        **Nombres de serveurs:** \`${client.guilds.cache.size} serveurs \`\n
                         **Nombres de salons:** \`${client.channels.cache.size} salons\`\n
                         **Nombres d'utilisateurs:** \`${client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)} utilisateurs\`\n
 

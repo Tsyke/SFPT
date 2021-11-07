@@ -25,21 +25,21 @@ module.exports = {
             .addField('Modérateur:', `${message.author}`)
 
         const guildDoc = await client.GetGuildData(message.guild.id);
-        if (!guildDoc) return message.reply({ content: ":warning: Erreur de bot, veuillez enlever et réinviter le bot." });
+        if (!guildDoc) return message.reply({ content: "<:passif:906545092486111302> |  Erreur de bot, veuillez enlever et réinviter le bot." });
         else if (!args[0]) {
             if (guildDoc.ageban === true) {
 
                 guilddoc = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ageban: false } })
                 message.reply({ content: ":white_check_mark: Age-ban désactivé." })
                 logs = await message.guild.channels.cache.get(guildDoc.logs)
-                if (!logs) message.channel.send({ content: ":warning: Erreur de logs" });
+                if (!logs) message.channel.send({ content: "<:passif:906545092486111302> |  Erreur de logs" });
                 else logs.send({ embeds: [DesacEmbed] })
             } else if (guildDoc.ageban === false) {
 
                 guilddoc = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ageban: true } })
                 message.reply({ content: ":warning: Age-ban activé." })
                 logs = await message.guild.channels.cache.get(guildDoc.logs)
-                if (!logs) message.channel.send({ content: ":warning: Erreur de logs" });
+                if (!logs) message.channel.send({ content: "<:passif:906545092486111302> |  Erreur de logs" });
                 else logs.send({ embeds: [AcEmbed] })
 
             } else if (!guildDoc.ageban) {
@@ -47,7 +47,7 @@ module.exports = {
                 guilddoc = await client.guild.findOneAndUpdate({ guildID: message.guild.id }, { $set: { ageban: true } })
                 message.reply({ content: ":warning: Age-ban activé." })
                 logs = await message.guild.channels.cache.get(guildDoc.logs)
-                if (!logs) message.channel.send({ content: ":warning: Erreur de logs" });
+                if (!logs) message.channel.send({ content: "<:passif:906545092486111302> |  Erreur de logs" });
                 else logs.send({ embeds: [AcEmbed] })
 
             }

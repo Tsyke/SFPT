@@ -5,3 +5,4 @@ commands/staff
 commands/admin/test.js
 models/admin
 commands/security/userinfo.js
+logs

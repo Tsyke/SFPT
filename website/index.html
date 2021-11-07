@@ -5,49 +5,173 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFPT - Discord Bot</title>
-    <link rel="stylesheet" href="./assets/public/css/font.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/public/css/style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <meta property="og:title" content="SFPT">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Bot anti-raid || Neutralization of enemies.">
+    <meta name="description" content="Bot anti-raid || Neutralization of enemies.">
+    <meta name="theme-color" content="#d2efe6">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="og:image" content="https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="includes" href="./dynamics/includes/nav.html">
+    <link rel="stylesheet" href="./public/assets/css/main.css">
+    <link rel="stylesheet" href="./public/assets/css/common.css">
+    <link rel="stylesheet" href="./public/assets/css/buttons.css">
+    <title>SFPT - Bot</title>
+    <link rel="stylesheet" href="style.css">
 
 </head>
+<style>
+    body {
+        background-color: black;
+    }
+    
+    .e {
+        font-family: Kiona Regular;
+    }
+</style>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li>
-                <img src="https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png" class="logo">
-            </li>
-            <li class="active">
-                <a href="#">SFPT</a>
-            </li>
-            <li>
-                <a href="#">Commandes</a>
-            </li>
-            <li>
-                <a href="#" onclick="support()">Support</a>
-            </li>
-            <li>
-                <a href="#" onclick="add()">Invité le bot</a>
-            </li>
-        </ul>
-    </nav>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png" width="70" height="70"></a>
+            </div>
+            <div class="main_list" id="mainListDiv">
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="https://discord.gg/NJnht3BPyz">Contact</a></li>
+                    <li><a href="./dev.html">Développeur</a></li>
+                    <!-- <li><a href="#">   Documentation</a></li> -->
+                </ul>
+            </div>
 
-    <div class="content">
-        <img src="https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png" class="SFPT">
-        <br>Le bot Discord fait pour la sécurité de <strong>VOS</strong> serveurs.
-        <br> De l'anti-raid à la modération
-        <br><input class="btnC" type="button" value="Support" onclick="support()">
-        <input class="btnC" type="button" value="Ajouter le bot" onclick="add()">
-        <br><input class="btnC" type="button" value="Panel" onclick="panel()">
-        <br><br><img src="https://cdn.discordapp.com/attachments/897562721011261471/897876041522102332/banniere.jpg" class="SFPT_Banner">
+        </div>
+        </div>
+    </nav>
+    <br><br><br><br>
+    <center><img src="https://cdn.discordapp.com/avatars/888839441454628897/7c504aead7837a02712e1816a374a0ae.png" class="e"></center>
+    <h1 class="c e">SFPT</h1> <br>
+    <h2 class="c e">Neutralization of enemies</h2> <br>
+    <h2 class="c e">Protect your servers <strong>NOW</strong> !</h2> <br>
+    <h3 class="c e">Pourquoi vous contentez d'un simple bot quand vous pouvez avoir un bot de protection avancé ?</h3>
+
+
+
+
+
+    <div>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=888839441454628897&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=bot%20applications.commands" class="animated-button1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span> Ajouter SFPT
+        </a>
+        <a href="https://discord.gg/NJnht3BPyz" class="animated-button1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span> Support
+        </a>
+    </div>
+    <h1 class="c e">Notre Serveur support</h1> <br><br>
+    <iframe src="https://discord.com/widget?id=893915741789782067&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> <br><br><br>
+    <div class="e c title">
+        <h1 class="e c ">L'équipe d'SFPT</h1>
+    </div>
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/805514364277882901/a_ac0fecebcdc163be248996dd45da4f74.gif" class="icon">
+        <h2 class="title e">
+            MD★eev#9746
+        </h2>
+
+        <p class="desc e c">Développeur du Projet SFPT</p>
+        <a href="#" class="button small">SFPT</a>
+
     </div>
 
-</body>
-<script src="./assets/public/javascript/main.js"></script>
-<script src="./assets/public/javascript/scriptSearch.js"></script>
-<script src="./assets/public/javascript/suggestions.js"></script>
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/570995666562842634/a_4c1480593d2cd9cb884220c49b5b42fc.gif" class="icon">
+        <h2 class="title e">
+            bou#2684
+        </h2>
 
+        <p class="desc e c">Cheffe de publicité</p>
+        <a href="#" class="button small">None</a>
+
+    </div>
+
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/805514364277882901/a_ac0fecebcdc163be248996dd45da4f74.gif" class="icon">
+        <h2 class="title e">
+            TS★win#2509
+        </h2>
+
+        <p class="desc e c">Responsable des annonces</p>
+        <a href="#" class="button small">None</a>
+
+    </div>
+
+    <div class="card e c">
+        <img src="https://cdn.discordapp.com/avatars/874703177377792072/eeab9449232091a28027b94135e60ebe.png" class="icon">
+        <h2 class="title e">
+            Ryūji#8540
+        </h2>
+
+        <p class="desc e c">Responsable Recrutement</p>
+        <a href="#" class="button small">None</a>
+
+    </div>
+
+
+
+</body>
+<script>
+    var mainListDiv = document.getElementById("mainListDiv"),
+        mediaButton = document.getElementById("mediaButton");
+
+    mediaButton.onclick = function() {
+
+        "use strict";
+
+        mainListDiv.classList.toggle("show_list");
+        mediaButton.classList.toggle("active");
+
+    };
+    $(function() {
+        $('.btn-6')
+            .on('mouseenter', function(e) {
+                var parentOffset = $(this).offset(),
+                    relX = e.pageX - parentOffset.left,
+                    relY = e.pageY - parentOffset.top;
+                $(this).find('span').css({
+                    top: relY,
+                    left: relX
+                })
+            })
+            .on('mouseout', function(e) {
+                var parentOffset = $(this).offset(),
+                    relX = e.pageX - parentOffset.left,
+                    relY = e.pageY - parentOffset.top;
+                $(this).find('span').css({
+                    top: relY,
+                    left: relX
+                })
+            });
+        $('[href=#]').click(function() {
+            return false
+        });
+    });
+    Array.prototype.shuffle = function() {
+        let a = this;
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+</script>
 
 </html>

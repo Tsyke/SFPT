@@ -8,12 +8,15 @@
     "private": false,
     "repository": "https://github.com/matheo-debal/SFPT/",
     "dependencies": {
+        "@discordjs/voice": "^0.7.2",
         "@sendgrid/mail": "^7.4.6",
         "canvas": "^2.8.0",
+        "create-file": "^1.0.1",
         "discord-backup": "^3.0.1",
         "discord.js": "^13.1.0",
         "dotenv": "^10.0.0",
         "klasa": "^0.5.0",
+        "libsodium-wrappers": "^0.7.9",
         "mail": "^0.2.3",
         "mongoose": "^6.0.8",
         "nodemailer": "^6.6.3",
@@ -22,6 +25,8 @@
         "sourcebin": "^4.2.5",
         "sourcebin_js": "^0.0.3-ignore",
         "superagent": "^6.1.0",
-        "ultrax": "^1.9.0"
+        "tokeylic-gen": "^1.0.0",
+        "ultrax": "^1.9.0",
+        "write": "^2.0.0"
     }
 }

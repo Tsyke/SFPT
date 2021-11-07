@@ -12,6 +12,8 @@ class SFPT extends Client {
         this.Ticketrole = require('../models/guilds/role-tickets')
         this.BlackList = require('../models/security/blacklist')
         this.bypass = require('../models/security/bypass')
+        this.raid = require('../models/security/raidmode')
+        this.urgence = require('../models/security/urgenceModel')
     }
 
     async GetGuildData(guildID) {
@@ -41,6 +43,10 @@ class SFPT extends Client {
         let roledoc = await this.Ticketrole.find()
         return roledoc
     }
+    async searchChannel(channelID) {
+        let searchChannel = await this.channels.cache.get(channelID)
+        return searchChannel
+    }
     async Error({ type, error }, message) {
         if (!type && !error) throw new SyntaxError("Type and error are poorly defined");
 
@@ -63,5 +69,13 @@ class SFPT extends Client {
             SyntaxError = message.reply(`Erreur de syntaxe, Syntaxe: ${error}.`);
         } else throw new TypeError("Type is not defined")
     }
+
+    async RaidModePassif(serverID) {
+        let RaidModePassif = await this.raid.findOne({
+            serverID
+        })
+        return RaidModePassif;
+    }
+
 }
 module.exports = SFPT;
